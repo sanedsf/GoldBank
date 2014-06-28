@@ -191,21 +191,21 @@ Partial Class Main
         '
         Me.SaveToolStripMenuItem.Name = "SaveToolStripMenuItem"
         Me.SaveToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.S), System.Windows.Forms.Keys)
-        Me.SaveToolStripMenuItem.Size = New System.Drawing.Size(143, 22)
+        Me.SaveToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.SaveToolStripMenuItem.Text = "Save"
         '
         'LoadToolStripMenuItem
         '
         Me.LoadToolStripMenuItem.Name = "LoadToolStripMenuItem"
         Me.LoadToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.O), System.Windows.Forms.Keys)
-        Me.LoadToolStripMenuItem.Size = New System.Drawing.Size(143, 22)
+        Me.LoadToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.LoadToolStripMenuItem.Text = "Load"
         '
         'ExitToolStripMenuItem
         '
         Me.ExitToolStripMenuItem.Name = "ExitToolStripMenuItem"
         Me.ExitToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Alt Or System.Windows.Forms.Keys.F4), System.Windows.Forms.Keys)
-        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(143, 22)
+        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.ExitToolStripMenuItem.Text = "Exit"
         '
         'OptionsToolStripMenuItem
@@ -396,9 +396,9 @@ Partial Class Main
         Me.Label151.AutoSize = True
         Me.Label151.Location = New System.Drawing.Point(10, 25)
         Me.Label151.Name = "Label151"
-        Me.Label151.Size = New System.Drawing.Size(38, 13)
+        Me.Label151.Size = New System.Drawing.Size(39, 13)
         Me.Label151.TabIndex = 155
-        Me.Label151.Text = "Name:"
+        Me.Label151.Text = "Player:"
         '
         'Label153
         '

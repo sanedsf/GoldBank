@@ -31,22 +31,6 @@
         Return True
     End Function
 
-    Function algorithm(ByRef data As String, ByVal index As Integer) As String
-        'data = the data the function takes to replace
-        'index = save or load
-        Dim w As String = data
-        If index = 1 Then
-            For x As Integer = 0 To Main.load1.Length - 1
-                w = Replace(w, Main.load1(x), Main.save1(x))
-            Next : Return w
-        ElseIf index = 0 Then
-            For x As Integer = 0 To Main.load1.Length - 1
-                w = Replace(w, Main.save1(x), Main.load1(x))
-            Next : Return w
-        End If
-        Return True
-    End Function
-
     Function savedat()
         Main.SaveFileDialog1.Filter = "Data|*.dat"
         Main.SaveFileDialog1.Title = "Save Data File"
@@ -58,11 +42,11 @@
                 My.Computer.FileSystem.DeleteFile(Main.SaveFileDialog1.FileName.ToString)
             End If
             For x As Integer = 0 To Main.ListBox1.Items.Count - 1 Step 1
-                My.Computer.FileSystem.WriteAllText(Main.SaveFileDialog1.FileName.ToString, algorithm(Main.ListBox1.Items.Item(x).ToString, 1) & vbCrLf, True)
-                My.Computer.FileSystem.WriteAllText(Main.SaveFileDialog1.FileName.ToString, algorithm(Main.copperpiece(x).ToString, 1) & vbCrLf, True)
-                My.Computer.FileSystem.WriteAllText(Main.SaveFileDialog1.FileName.ToString, algorithm(Main.silverpiece(x).ToString, 1) & vbCrLf, True)
-                My.Computer.FileSystem.WriteAllText(Main.SaveFileDialog1.FileName.ToString, algorithm(Main.goldpiece(x).ToString, 1) & vbCrLf, True)
-                My.Computer.FileSystem.WriteAllText(Main.SaveFileDialog1.FileName.ToString, algorithm(Main.platinumpiece(x).ToString, 1) & vbCrLf, True)
+                My.Computer.FileSystem.WriteAllText(Main.SaveFileDialog1.FileName.ToString, Main.ListBox1.Items.Item(x).ToString & vbCrLf, True)
+                My.Computer.FileSystem.WriteAllText(Main.SaveFileDialog1.FileName.ToString, Main.copperpiece(x).ToString & vbCrLf, True)
+                My.Computer.FileSystem.WriteAllText(Main.SaveFileDialog1.FileName.ToString, Main.silverpiece(x).ToString & vbCrLf, True)
+                My.Computer.FileSystem.WriteAllText(Main.SaveFileDialog1.FileName.ToString, Main.goldpiece(x).ToString & vbCrLf, True)
+                My.Computer.FileSystem.WriteAllText(Main.SaveFileDialog1.FileName.ToString, Main.platinumpiece(x).ToString & vbCrLf, True)
             Next
         End If
         Return True
@@ -79,11 +63,11 @@
             Main.ListBox1.Items.Clear()
             Dim lineCount = IO.File.ReadAllLines(Main.OpenFileDialog1.FileName).Length
             For x As Integer = 0 To Math.Floor(lineCount / 5) - 1 Step 1
-                Main.ListBox1.Items.Add(algorithm(sr.ReadLine(), 0))
-                Main.copperpiece(x) = algorithm(sr.ReadLine(), 0)
-                Main.silverpiece(x) = algorithm(sr.ReadLine(), 0)
-                Main.goldpiece(x) = algorithm(sr.ReadLine(), 0)
-                Main.platinumpiece(x) = algorithm(sr.ReadLine(), 0)
+                Main.ListBox1.Items.Add(sr.ReadLine())
+                Main.copperpiece(x) = sr.ReadLine()
+                Main.silverpiece(x) = sr.ReadLine()
+                Main.goldpiece(x) = sr.ReadLine()
+                Main.platinumpiece(x) = sr.ReadLine()
             Next
             Main.ListBox1.SelectedIndex = 0
             sr.Close()

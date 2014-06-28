@@ -15,8 +15,6 @@
     Public silverpiece As Integer() = {0, 0, 0, 0, 0, 0, 0, 0, 0}
     Public goldpiece As Integer() = {0, 0, 0, 0, 0, 0, 0, 0, 0}
     Public platinumpiece As Integer() = {0, 0, 0, 0, 0, 0, 0, 0, 0}
-    Public save1 As String()
-    Public load1 As String()
     Dim dicepic As String()
     Dim httppath As String()
     Dim buttons As Button()
@@ -52,12 +50,6 @@
             OnToolStripMenuItem.Checked = False
             OffToolStripMenuItem.Checked = True
         End If
-        load1 = {"a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", _
-                 "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", _
-                 "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", " ", "-"}
-        save1 = {"☺", "☻", "♥", "♦", "♣", "♠", "•", "◘", "○", "◙", "♂", "♀", "♪", "♫", "☼", "►", "◄", "↕", "‼", "¶", "§", "▬", "↨", "↑", "↓", "→", _
-                 "←", "∟", "↔", "▲", "▼", "!", "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", "[", "\", "]", "^", "_", "`", "ü", _
-                 "é", "â", "ä", "à", "å", "ç", "ê", "ë", "è", "ï", "î", "ì"}
         My.Application.SaveMySettingsOnExit = True
         ListBox1.SelectedIndex = 0
         If Debugger.IsAttached = True Then
@@ -148,9 +140,9 @@
     End Sub
 
     Private Sub testbtn_Click(sender As System.Object, e As System.EventArgs) Handles testbtn.Click
-        'For x As Integer = 0 To ListBox1.Items.Count - 1 Step 1
-        '    Console.WriteLine(copperpiece(x) & " / " & silverpiece(x) & " / " & goldpiece(x) & " / " & platinumpiece(x))
-        'Next
+        For x As Integer = 0 To ListBox1.Items.Count - 1 Step 1
+            Console.WriteLine(copperpiece(x) & " / " & silverpiece(x) & " / " & goldpiece(x) & " / " & platinumpiece(x))
+        Next
         Console.WriteLine(copperpiece.Length.ToString)
     End Sub
 
