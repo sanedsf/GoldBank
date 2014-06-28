@@ -148,9 +148,10 @@
     End Sub
 
     Private Sub testbtn_Click(sender As System.Object, e As System.EventArgs) Handles testbtn.Click
-        For x As Integer = 0 To 8 Step 1
-            Console.WriteLine(copperpiece(x) & " / " & silverpiece(x) & " / " & goldpiece(x) & " / " & platinumpiece(x))
-        Next
+        'For x As Integer = 0 To ListBox1.Items.Count - 1 Step 1
+        '    Console.WriteLine(copperpiece(x) & " / " & silverpiece(x) & " / " & goldpiece(x) & " / " & platinumpiece(x))
+        'Next
+        Console.WriteLine(copperpiece.Length.ToString)
     End Sub
 
     Private Sub ListBox1_SelectedIndexChanged(sender As Object, e As System.EventArgs) Handles ListBox1.SelectedIndexChanged
@@ -321,29 +322,14 @@
         RichTextBox1.SelectionStart = 0
     End Sub
 
-    Private Sub Timer1_Tick(sender As Object, e As System.EventArgs) Handles Timer1.Tick
-        If CInt(CopperLabel.Text) >= 500 Then
-            CopperPic.Image = Image.FromFile(path & "copperbars.png")
-        ElseIf CInt(CopperLabel.Text) < 500 Then
-            CopperPic.Image = Image.FromFile(path & "coppercoin.png")
+    Private Function pic_change(sender As Label, imagectrl As PictureBox, imagetext As String)
+        If CInt(sender.Text) >= 500 Then
+            imagectrl.Image = Image.FromFile(path & imagetext + "bars.png")
+        ElseIf CInt(sender.Text) < 500 Then
+            imagectrl.Image = Image.FromFile(path & imagetext + "coin.png")
         End If
-        If CInt(SilverLabel.Text) >= 500 Then
-            SilverPic.Image = Image.FromFile(path & "silverbars.png")
-        ElseIf CInt(SilverLabel.Text) < 500 Then
-            SilverPic.Image = Image.FromFile(path & "silvercoin.png")
-        End If
-        If CInt(GoldLabel.Text) >= 500 Then
-            GoldPic.Image = Image.FromFile(path & "goldbars.png")
-        ElseIf CInt(GoldLabel.Text) < 500 Then
-            GoldPic.Image = Image.FromFile(path & "goldcoin.png")
-        End If
-        If CInt(PlatinumLabel.Text) >= 500 Then
-            PlatinumPic.Image = Image.FromFile(path & "platinumbars.png")
-        ElseIf CInt(PlatinumLabel.Text) < 500 Then
-            PlatinumPic.Image = Image.FromFile(path & "platinumcoin.png")
-        End If
-    End Sub
-
+        Return True
+    End Function
 
     Private Sub CopperPic_MouseDown(sender As Object, e As MouseEventArgs) Handles CopperPic.MouseDown
         Dim i As String = ListBox1.SelectedIndex.ToString
@@ -366,6 +352,7 @@
                 End If
             End If
         End If
+        pic_change(CopperLabel, CopperPic, "copper")
     End Sub
 
     Private Sub SilverPic_MouseDown(sender As Object, e As MouseEventArgs) Handles SilverPic.MouseDown
@@ -389,6 +376,7 @@
                 End If
             End If
         End If
+        pic_change(SilverLabel, SilverPic, "silver")
     End Sub
 
     Private Sub GoldPic_MouseDown(sender As Object, e As MouseEventArgs) Handles GoldPic.MouseDown
@@ -412,6 +400,7 @@
                 End If
             End If
         End If
+        pic_change(GoldLabel, GoldPic, "gold")
     End Sub
 
     Private Sub PlatinumPic_MouseDown(sender As Object, e As MouseEventArgs) Handles PlatinumPic.MouseDown
@@ -435,6 +424,6 @@
                 End If
             End If
         End If
+        pic_change(PlatinumLabel, PlatinumPic, "platinum")
     End Sub
-
 End Class

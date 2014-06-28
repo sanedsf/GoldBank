@@ -1,8 +1,7 @@
 ﻿Module FuncMod
 
-    Dim rndnumber As New Random
-
     Function roll(ByVal i As Integer, ByVal p As Integer)
+        Dim rndnumber As New Random
         Dim k As Integer
         For t As Integer = 0 To p Step 1
             k = rndnumber.Next(i, p)

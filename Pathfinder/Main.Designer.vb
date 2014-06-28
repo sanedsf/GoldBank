@@ -111,7 +111,6 @@ Partial Class Main
         Me.FlowLayoutPanel1 = New System.Windows.Forms.FlowLayoutPanel()
         Me.SaveFileDialog1 = New System.Windows.Forms.SaveFileDialog()
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
-        Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         CType(Me.CopperPic, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.SilverPic, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GoldPic, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -985,11 +984,6 @@ Partial Class Main
         Me.FlowLayoutPanel1.Size = New System.Drawing.Size(990, 325)
         Me.FlowLayoutPanel1.TabIndex = 160
         '
-        'Timer1
-        '
-        Me.Timer1.Enabled = True
-        Me.Timer1.Interval = 1000
-        '
         'Main
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1120,7 +1114,6 @@ Partial Class Main
     Friend WithEvents Label8 As System.Windows.Forms.Label
     Friend WithEvents RichTextBox1 As System.Windows.Forms.RichTextBox
     Friend WithEvents Label11 As System.Windows.Forms.Label
-    Friend WithEvents Timer1 As System.Windows.Forms.Timer
     Friend WithEvents Playername As System.Windows.Forms.Label
 
 End Class
