@@ -164,80 +164,6 @@
         End Try
     End Sub
 
-    Private Sub Button5_Click(sender As System.Object, e As System.EventArgs) Handles plus.Click
-        Dim i As String = ListBox1.SelectedIndex.ToString
-        If Currency.SelectedIndex = 0 Then 'Copper
-            cop(i) = copperpiece(i)
-            copperpiece(i) += Amount.Text
-            If copperpiece(i) > 999999 Then
-                MsgBox("Cannot add that amount of coins.")
-                copperpiece(i) = cop(i)
-            End If
-            CopperLabel.Text = copperpiece(i)
-        ElseIf Currency.SelectedIndex = 1 Then 'Silver
-            silv(i) = silverpiece(i)
-            silverpiece(i) += Amount.Text
-            If silverpiece(i) > 999999 Then
-                MsgBox("Cannot add that amount of coins.")
-                silverpiece(i) = silv(i)
-            End If
-            SilverLabel.Text = silverpiece(i)
-        ElseIf Currency.SelectedIndex = 2 Then 'Gold
-            gold(i) = goldpiece(i)
-            goldpiece(i) += Amount.Text
-            If goldpiece(i) > 999999 Then
-                MsgBox("Cannot add that amount of coins.")
-                goldpiece(i) = gold(i)
-            End If
-            GoldLabel.Text = goldpiece(i)
-        ElseIf Currency.SelectedIndex = 3 Then 'Platinum
-            plat(i) = platinumpiece(i)
-            platinumpiece(i) += Amount.Text
-            If platinumpiece(i) > 999999 Then
-                MsgBox("Cannot add that amount of coins.")
-                platinumpiece(i) = plat(i)
-            End If
-            PlatinumLabel.Text = platinumpiece(i)
-        End If
-    End Sub
-
-    Private Sub Button6_Click(sender As System.Object, e As System.EventArgs) Handles minus.Click
-        Dim i As String = ListBox1.SelectedIndex.ToString
-        If Currency.SelectedIndex = 0 Then 'Copper
-            cop(i) = copperpiece(i)
-            copperpiece(i) -= Amount.Text
-            If copperpiece(i) < 0 Then
-                MsgBox("Cannot dubtract that amount of coins.")
-                copperpiece(i) = cop(i)
-            End If
-            CopperLabel.Text = copperpiece(i)
-        ElseIf Currency.SelectedIndex = 1 Then 'Silver
-            silv(i) = silverpiece(i)
-            silverpiece(i) -= Amount.Text
-            If silverpiece(i) < 0 Then
-                MsgBox("Cannot subtract that amount of coins.")
-                silverpiece(i) = silv(i)
-            End If
-            SilverLabel.Text = silverpiece(i)
-        ElseIf Currency.SelectedIndex = 2 Then 'Gold
-            gold(i) = goldpiece(i)
-            goldpiece(i) -= Amount.Text
-            If goldpiece(i) < 0 Then
-                MsgBox("Cannot subtract that amount of coins.")
-                goldpiece(i) = gold(i)
-            End If
-            GoldLabel.Text = goldpiece(i)
-        ElseIf Currency.SelectedIndex = 3 Then 'Platinum
-            plat(i) = platinumpiece(i)
-            platinumpiece(i) -= Amount.Text
-            If platinumpiece(i) < 0 Then
-                MsgBox("Cannot subtract that amount of coins.")
-                platinumpiece(i) = plat(i)
-            End If
-            PlatinumLabel.Text = platinumpiece(i)
-        End If
-    End Sub
-
     Private Sub addplayerbtn_Click(sender As System.Object, e As System.EventArgs) Handles addplayerbtn.Click
         If Not ListBox1.Items.Count = 9 Then
             AddPlayer.ShowDialog()
@@ -371,7 +297,7 @@
     End Sub
 
     Private Sub Button12_Click(sender As System.Object, e As System.EventArgs) Handles Button12.Click
-        MsgBox("Not yet finished! Still working on the engine to support this.")
+        MsgBox("WORK IN PROGRESS")
     End Sub
 
     Private Sub InformationToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles InformationToolStripMenuItem.Click
@@ -415,6 +341,99 @@
             PlatinumPic.Image = Image.FromFile(path & "platinumbars.png")
         ElseIf CInt(PlatinumLabel.Text) < 500 Then
             PlatinumPic.Image = Image.FromFile(path & "platinumcoin.png")
+        End If
+    End Sub
+
+
+    Private Sub CopperPic_MouseDown(sender As Object, e As MouseEventArgs) Handles CopperPic.MouseDown
+        Dim i As String = ListBox1.SelectedIndex.ToString
+        If Amount.Text Is "" Then
+            MsgBox("Amount cannot be nothing.")
+        Else
+            If e.Button = Windows.Forms.MouseButtons.Left Then
+                If (copperpiece(i) + CInt(Amount.Text)) > 999999 Then
+                    MsgBox("Cannot add any more.")
+                Else
+                    copperpiece(i) += CInt(Amount.Text)
+                    CopperLabel.Text = copperpiece(i)
+                End If
+            ElseIf e.Button = Windows.Forms.MouseButtons.Right Then
+                If (copperpiece(i) - CInt(Amount.Text)) < 0 Then
+                    MsgBox("Cannot subtract any more.")
+                Else
+                    copperpiece(i) -= CInt(Amount.Text)
+                    CopperLabel.Text = copperpiece(i)
+                End If
+            End If
+        End If
+    End Sub
+
+    Private Sub SilverPic_MouseDown(sender As Object, e As MouseEventArgs) Handles SilverPic.MouseDown
+        Dim i As String = ListBox1.SelectedIndex.ToString
+        If Amount.Text Is "" Then
+            MsgBox("Amount cannot be nothing.")
+        Else
+            If e.Button = Windows.Forms.MouseButtons.Left Then
+                If (silverpiece(i) + CInt(Amount.Text)) > 999999 Then
+                    MsgBox("Cannot add any more.")
+                Else
+                    silverpiece(i) += CInt(Amount.Text)
+                    SilverLabel.Text = silverpiece(i)
+                End If
+            ElseIf e.Button = Windows.Forms.MouseButtons.Right Then
+                If (silverpiece(i) - CInt(Amount.Text)) < 0 Then
+                    MsgBox("Cannot subtract any more.")
+                Else
+                    silverpiece(i) -= CInt(Amount.Text)
+                    SilverLabel.Text = silverpiece(i)
+                End If
+            End If
+        End If
+    End Sub
+
+    Private Sub GoldPic_MouseDown(sender As Object, e As MouseEventArgs) Handles GoldPic.MouseDown
+        Dim i As String = ListBox1.SelectedIndex.ToString
+        If Amount.Text Is "" Then
+            MsgBox("Amount cannot be nothing.")
+        Else
+            If e.Button = Windows.Forms.MouseButtons.Left Then
+                If (goldpiece(i) + CInt(Amount.Text)) > 999999 Then
+                    MsgBox("Cannot add any more.")
+                Else
+                    goldpiece(i) += CInt(Amount.Text)
+                    GoldLabel.Text = goldpiece(i)
+                End If
+            ElseIf e.Button = Windows.Forms.MouseButtons.Right Then
+                If (goldpiece(i) - CInt(Amount.Text)) < 0 Then
+                    MsgBox("Cannot subtract any more.")
+                Else
+                    goldpiece(i) -= CInt(Amount.Text)
+                    GoldLabel.Text = goldpiece(i)
+                End If
+            End If
+        End If
+    End Sub
+
+    Private Sub PlatinumPic_MouseDown(sender As Object, e As MouseEventArgs) Handles PlatinumPic.MouseDown
+        Dim i As String = ListBox1.SelectedIndex.ToString
+        If Amount.Text Is "" Then
+            MsgBox("Amount cannot be nothing.")
+        Else
+            If e.Button = Windows.Forms.MouseButtons.Left Then
+                If (platinumpiece(i) + CInt(Amount.Text)) > 999999 Then
+                    MsgBox("Cannot add any more.")
+                Else
+                    platinumpiece(i) += CInt(Amount.Text)
+                    PlatinumLabel.Text = platinumpiece(i)
+                End If
+            ElseIf e.Button = Windows.Forms.MouseButtons.Right Then
+                If (platinumpiece(i) - CInt(Amount.Text)) < 0 Then
+                    MsgBox("Cannot subtract any more.")
+                Else
+                    platinumpiece(i) -= CInt(Amount.Text)
+                    PlatinumLabel.Text = platinumpiece(i)
+                End If
+            End If
         End If
     End Sub
 

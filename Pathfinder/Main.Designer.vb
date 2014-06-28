@@ -28,7 +28,6 @@ Partial Class Main
         Me.SilverPic = New System.Windows.Forms.PictureBox()
         Me.GoldPic = New System.Windows.Forms.PictureBox()
         Me.PlatinumPic = New System.Windows.Forms.PictureBox()
-        Me.Currency = New System.Windows.Forms.ComboBox()
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.FileToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SaveToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -55,11 +54,8 @@ Partial Class Main
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
         Me.Playername = New System.Windows.Forms.Label()
         Me.Label151 = New System.Windows.Forms.Label()
-        Me.Label155 = New System.Windows.Forms.Label()
         Me.Label153 = New System.Windows.Forms.Label()
-        Me.minus = New System.Windows.Forms.Button()
         Me.Amount = New System.Windows.Forms.TextBox()
-        Me.plus = New System.Windows.Forms.Button()
         Me.PlatinumLabel = New System.Windows.Forms.Label()
         Me.GoldLabel = New System.Windows.Forms.Label()
         Me.CopperLabel = New System.Windows.Forms.Label()
@@ -136,7 +132,8 @@ Partial Class Main
         '
         'CopperPic
         '
-        Me.CopperPic.Location = New System.Drawing.Point(16, 106)
+        Me.CopperPic.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.CopperPic.Location = New System.Drawing.Point(16, 89)
         Me.CopperPic.Name = "CopperPic"
         Me.CopperPic.Size = New System.Drawing.Size(32, 32)
         Me.CopperPic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
@@ -145,7 +142,8 @@ Partial Class Main
         '
         'SilverPic
         '
-        Me.SilverPic.Location = New System.Drawing.Point(70, 106)
+        Me.SilverPic.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.SilverPic.Location = New System.Drawing.Point(69, 89)
         Me.SilverPic.Name = "SilverPic"
         Me.SilverPic.Size = New System.Drawing.Size(32, 32)
         Me.SilverPic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
@@ -154,7 +152,8 @@ Partial Class Main
         '
         'GoldPic
         '
-        Me.GoldPic.Location = New System.Drawing.Point(124, 106)
+        Me.GoldPic.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.GoldPic.Location = New System.Drawing.Point(125, 89)
         Me.GoldPic.Name = "GoldPic"
         Me.GoldPic.Size = New System.Drawing.Size(32, 32)
         Me.GoldPic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
@@ -163,22 +162,13 @@ Partial Class Main
         '
         'PlatinumPic
         '
-        Me.PlatinumPic.Location = New System.Drawing.Point(178, 106)
+        Me.PlatinumPic.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.PlatinumPic.Location = New System.Drawing.Point(177, 89)
         Me.PlatinumPic.Name = "PlatinumPic"
         Me.PlatinumPic.Size = New System.Drawing.Size(32, 32)
         Me.PlatinumPic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
         Me.PlatinumPic.TabIndex = 3
         Me.PlatinumPic.TabStop = False
-        '
-        'Currency
-        '
-        Me.Currency.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.Currency.FormattingEnabled = True
-        Me.Currency.Items.AddRange(New Object() {"Copper", "Silver", "Gold", "Platinum"})
-        Me.Currency.Location = New System.Drawing.Point(48, 49)
-        Me.Currency.Name = "Currency"
-        Me.Currency.Size = New System.Drawing.Size(107, 21)
-        Me.Currency.TabIndex = 42
         '
         'MenuStrip1
         '
@@ -195,42 +185,42 @@ Partial Class Main
         '
         Me.FileToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SaveToolStripMenuItem, Me.LoadToolStripMenuItem, Me.ExitToolStripMenuItem})
         Me.FileToolStripMenuItem.Name = "FileToolStripMenuItem"
-        Me.FileToolStripMenuItem.Size = New System.Drawing.Size(35, 20)
+        Me.FileToolStripMenuItem.Size = New System.Drawing.Size(37, 20)
         Me.FileToolStripMenuItem.Text = "File"
         '
         'SaveToolStripMenuItem
         '
         Me.SaveToolStripMenuItem.Name = "SaveToolStripMenuItem"
         Me.SaveToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.S), System.Windows.Forms.Keys)
-        Me.SaveToolStripMenuItem.Size = New System.Drawing.Size(137, 22)
+        Me.SaveToolStripMenuItem.Size = New System.Drawing.Size(143, 22)
         Me.SaveToolStripMenuItem.Text = "Save"
         '
         'LoadToolStripMenuItem
         '
         Me.LoadToolStripMenuItem.Name = "LoadToolStripMenuItem"
         Me.LoadToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.O), System.Windows.Forms.Keys)
-        Me.LoadToolStripMenuItem.Size = New System.Drawing.Size(137, 22)
+        Me.LoadToolStripMenuItem.Size = New System.Drawing.Size(143, 22)
         Me.LoadToolStripMenuItem.Text = "Load"
         '
         'ExitToolStripMenuItem
         '
         Me.ExitToolStripMenuItem.Name = "ExitToolStripMenuItem"
         Me.ExitToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Alt Or System.Windows.Forms.Keys.F4), System.Windows.Forms.Keys)
-        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(137, 22)
+        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(143, 22)
         Me.ExitToolStripMenuItem.Text = "Exit"
         '
         'OptionsToolStripMenuItem
         '
         Me.OptionsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SplashScreenToolStripMenuItem, Me.TablesToolStripMenuItem})
         Me.OptionsToolStripMenuItem.Name = "OptionsToolStripMenuItem"
-        Me.OptionsToolStripMenuItem.Size = New System.Drawing.Size(56, 20)
+        Me.OptionsToolStripMenuItem.Size = New System.Drawing.Size(61, 20)
         Me.OptionsToolStripMenuItem.Text = "Options"
         '
         'SplashScreenToolStripMenuItem
         '
         Me.SplashScreenToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.OnToolStripMenuItem, Me.OffToolStripMenuItem})
         Me.SplashScreenToolStripMenuItem.Name = "SplashScreenToolStripMenuItem"
-        Me.SplashScreenToolStripMenuItem.Size = New System.Drawing.Size(138, 22)
+        Me.SplashScreenToolStripMenuItem.Size = New System.Drawing.Size(143, 22)
         Me.SplashScreenToolStripMenuItem.Text = "SplashScreen"
         '
         'OnToolStripMenuItem
@@ -238,20 +228,20 @@ Partial Class Main
         Me.OnToolStripMenuItem.Checked = True
         Me.OnToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked
         Me.OnToolStripMenuItem.Name = "OnToolStripMenuItem"
-        Me.OnToolStripMenuItem.Size = New System.Drawing.Size(90, 22)
+        Me.OnToolStripMenuItem.Size = New System.Drawing.Size(91, 22)
         Me.OnToolStripMenuItem.Text = "On"
         '
         'OffToolStripMenuItem
         '
         Me.OffToolStripMenuItem.Name = "OffToolStripMenuItem"
-        Me.OffToolStripMenuItem.Size = New System.Drawing.Size(90, 22)
+        Me.OffToolStripMenuItem.Size = New System.Drawing.Size(91, 22)
         Me.OffToolStripMenuItem.Text = "Off"
         '
         'TablesToolStripMenuItem
         '
         Me.TablesToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.GoldBankToolStripMenuItem, Me.DiceRollerToolStripMenuItem, Me.InfoToolStripMenuItem})
         Me.TablesToolStripMenuItem.Name = "TablesToolStripMenuItem"
-        Me.TablesToolStripMenuItem.Size = New System.Drawing.Size(138, 22)
+        Me.TablesToolStripMenuItem.Size = New System.Drawing.Size(143, 22)
         Me.TablesToolStripMenuItem.Text = "Tables"
         '
         'GoldBankToolStripMenuItem
@@ -260,7 +250,7 @@ Partial Class Main
         Me.GoldBankToolStripMenuItem.CheckOnClick = True
         Me.GoldBankToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked
         Me.GoldBankToolStripMenuItem.Name = "GoldBankToolStripMenuItem"
-        Me.GoldBankToolStripMenuItem.Size = New System.Drawing.Size(124, 22)
+        Me.GoldBankToolStripMenuItem.Size = New System.Drawing.Size(130, 22)
         Me.GoldBankToolStripMenuItem.Text = "Gold Bank"
         '
         'DiceRollerToolStripMenuItem
@@ -269,7 +259,7 @@ Partial Class Main
         Me.DiceRollerToolStripMenuItem.CheckOnClick = True
         Me.DiceRollerToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked
         Me.DiceRollerToolStripMenuItem.Name = "DiceRollerToolStripMenuItem"
-        Me.DiceRollerToolStripMenuItem.Size = New System.Drawing.Size(124, 22)
+        Me.DiceRollerToolStripMenuItem.Size = New System.Drawing.Size(130, 22)
         Me.DiceRollerToolStripMenuItem.Text = "Dice Roller"
         '
         'InfoToolStripMenuItem
@@ -278,20 +268,20 @@ Partial Class Main
         Me.InfoToolStripMenuItem.CheckOnClick = True
         Me.InfoToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked
         Me.InfoToolStripMenuItem.Name = "InfoToolStripMenuItem"
-        Me.InfoToolStripMenuItem.Size = New System.Drawing.Size(124, 22)
+        Me.InfoToolStripMenuItem.Size = New System.Drawing.Size(130, 22)
         Me.InfoToolStripMenuItem.Text = "Info"
         '
         'AboutToolStripMenuItem
         '
         Me.AboutToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.InformationToolStripMenuItem})
         Me.AboutToolStripMenuItem.Name = "AboutToolStripMenuItem"
-        Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(48, 20)
+        Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(52, 20)
         Me.AboutToolStripMenuItem.Text = "About"
         '
         'InformationToolStripMenuItem
         '
         Me.InformationToolStripMenuItem.Name = "InformationToolStripMenuItem"
-        Me.InformationToolStripMenuItem.Size = New System.Drawing.Size(130, 22)
+        Me.InformationToolStripMenuItem.Size = New System.Drawing.Size(137, 22)
         Me.InformationToolStripMenuItem.Text = "Information"
         '
         'dicenumber
@@ -377,17 +367,13 @@ Partial Class Main
         '
         Me.GroupBox4.Controls.Add(Me.Playername)
         Me.GroupBox4.Controls.Add(Me.Label151)
-        Me.GroupBox4.Controls.Add(Me.Label155)
         Me.GroupBox4.Controls.Add(Me.PlatinumPic)
         Me.GroupBox4.Controls.Add(Me.Label153)
         Me.GroupBox4.Controls.Add(Me.GoldPic)
         Me.GroupBox4.Controls.Add(Me.SilverPic)
-        Me.GroupBox4.Controls.Add(Me.minus)
         Me.GroupBox4.Controls.Add(Me.CopperPic)
         Me.GroupBox4.Controls.Add(Me.Amount)
-        Me.GroupBox4.Controls.Add(Me.plus)
         Me.GroupBox4.Controls.Add(Me.PlatinumLabel)
-        Me.GroupBox4.Controls.Add(Me.Currency)
         Me.GroupBox4.Controls.Add(Me.GoldLabel)
         Me.GroupBox4.Controls.Add(Me.CopperLabel)
         Me.GroupBox4.Controls.Add(Me.SilverLabel)
@@ -415,56 +401,27 @@ Partial Class Main
         Me.Label151.TabIndex = 155
         Me.Label151.Text = "Name:"
         '
-        'Label155
-        '
-        Me.Label155.AutoSize = True
-        Me.Label155.Location = New System.Drawing.Point(14, 52)
-        Me.Label155.Name = "Label155"
-        Me.Label155.Size = New System.Drawing.Size(34, 13)
-        Me.Label155.TabIndex = 157
-        Me.Label155.Text = "Type:"
-        '
         'Label153
         '
         Me.Label153.AutoSize = True
-        Me.Label153.Location = New System.Drawing.Point(2, 79)
+        Me.Label153.Location = New System.Drawing.Point(2, 53)
         Me.Label153.Name = "Label153"
         Me.Label153.Size = New System.Drawing.Size(46, 13)
         Me.Label153.TabIndex = 156
         Me.Label153.Text = "Amount:"
         '
-        'minus
-        '
-        Me.minus.Font = New System.Drawing.Font("MingLiU", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.minus.Location = New System.Drawing.Point(195, 76)
-        Me.minus.Name = "minus"
-        Me.minus.Size = New System.Drawing.Size(25, 20)
-        Me.minus.TabIndex = 154
-        Me.minus.Text = "-"
-        Me.minus.UseVisualStyleBackColor = True
-        '
         'Amount
         '
-        Me.Amount.Location = New System.Drawing.Point(48, 76)
+        Me.Amount.Location = New System.Drawing.Point(54, 49)
         Me.Amount.MaxLength = 6
         Me.Amount.Name = "Amount"
-        Me.Amount.Size = New System.Drawing.Size(107, 20)
+        Me.Amount.Size = New System.Drawing.Size(155, 20)
         Me.Amount.TabIndex = 21
         Me.Amount.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
-        'plus
-        '
-        Me.plus.Font = New System.Drawing.Font("MingLiU", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.plus.Location = New System.Drawing.Point(161, 76)
-        Me.plus.Name = "plus"
-        Me.plus.Size = New System.Drawing.Size(25, 20)
-        Me.plus.TabIndex = 12
-        Me.plus.Text = "+"
-        Me.plus.UseVisualStyleBackColor = True
-        '
         'PlatinumLabel
         '
-        Me.PlatinumLabel.Location = New System.Drawing.Point(170, 143)
+        Me.PlatinumLabel.Location = New System.Drawing.Point(170, 136)
         Me.PlatinumLabel.Name = "PlatinumLabel"
         Me.PlatinumLabel.Size = New System.Drawing.Size(48, 13)
         Me.PlatinumLabel.TabIndex = 74
@@ -473,7 +430,7 @@ Partial Class Main
         '
         'GoldLabel
         '
-        Me.GoldLabel.Location = New System.Drawing.Point(116, 143)
+        Me.GoldLabel.Location = New System.Drawing.Point(116, 136)
         Me.GoldLabel.Name = "GoldLabel"
         Me.GoldLabel.Size = New System.Drawing.Size(48, 13)
         Me.GoldLabel.TabIndex = 73
@@ -482,7 +439,7 @@ Partial Class Main
         '
         'CopperLabel
         '
-        Me.CopperLabel.Location = New System.Drawing.Point(8, 144)
+        Me.CopperLabel.Location = New System.Drawing.Point(8, 136)
         Me.CopperLabel.Name = "CopperLabel"
         Me.CopperLabel.Size = New System.Drawing.Size(48, 13)
         Me.CopperLabel.TabIndex = 71
@@ -491,7 +448,7 @@ Partial Class Main
         '
         'SilverLabel
         '
-        Me.SilverLabel.Location = New System.Drawing.Point(62, 144)
+        Me.SilverLabel.Location = New System.Drawing.Point(62, 136)
         Me.SilverLabel.Name = "SilverLabel"
         Me.SilverLabel.Size = New System.Drawing.Size(48, 13)
         Me.SilverLabel.TabIndex = 72
@@ -1081,7 +1038,6 @@ Partial Class Main
     Friend WithEvents SilverPic As System.Windows.Forms.PictureBox
     Friend WithEvents GoldPic As System.Windows.Forms.PictureBox
     Friend WithEvents PlatinumPic As System.Windows.Forms.PictureBox
-    Friend WithEvents Currency As System.Windows.Forms.ComboBox
     Friend WithEvents MenuStrip1 As System.Windows.Forms.MenuStrip
     Friend WithEvents FileToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents SaveToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
@@ -1115,7 +1071,6 @@ Partial Class Main
     Friend WithEvents OpenFileDialog1 As System.Windows.Forms.OpenFileDialog
     Friend WithEvents testbtn As System.Windows.Forms.Button
     Friend WithEvents ListBox1 As System.Windows.Forms.ListBox
-    Friend WithEvents plus As System.Windows.Forms.Button
     Friend WithEvents Amount As System.Windows.Forms.TextBox
     Friend WithEvents PlatinumLabel As System.Windows.Forms.Label
     Friend WithEvents GoldLabel As System.Windows.Forms.Label
@@ -1123,9 +1078,7 @@ Partial Class Main
     Friend WithEvents CopperLabel As System.Windows.Forms.Label
     Friend WithEvents removeplayer As System.Windows.Forms.Button
     Friend WithEvents addplayerbtn As System.Windows.Forms.Button
-    Friend WithEvents minus As System.Windows.Forms.Button
     Friend WithEvents PlayerInfolbl As System.Windows.Forms.Label
-    Friend WithEvents Label155 As System.Windows.Forms.Label
     Friend WithEvents Label153 As System.Windows.Forms.Label
     Friend WithEvents Label151 As System.Windows.Forms.Label
     Friend WithEvents GroupBox5 As System.Windows.Forms.GroupBox
