@@ -7,16 +7,11 @@
     ''Coder: AnaRchx
     ''Special Thanks: Oblivionaire, Kesidhs
 
-    Dim cop As Integer() = {0, 0, 0, 0, 0, 0, 0, 0, 0}
-    Dim silv As Integer() = {0, 0, 0, 0, 0, 0, 0, 0, 0}
-    Dim gold As Integer() = {0, 0, 0, 0, 0, 0, 0, 0, 0}
-    Dim plat As Integer() = {0, 0, 0, 0, 0, 0, 0, 0, 0}
-    Public copperpiece As Integer() = {0, 0, 0, 0, 0, 0, 0, 0, 0}
-    Public silverpiece As Integer() = {0, 0, 0, 0, 0, 0, 0, 0, 0}
-    Public goldpiece As Integer() = {0, 0, 0, 0, 0, 0, 0, 0, 0}
-    Public platinumpiece As Integer() = {0, 0, 0, 0, 0, 0, 0, 0, 0}
+    Public cop As New List(Of Integer)
+    Public silv As New List(Of Integer)
+    Public gold As New List(Of Integer)
+    Public plat As New List(Of Integer)
     Dim dicepic As String()
-    Dim httppath As String()
     Dim buttons As Button()
     Public path As String = My.Application.Info.DirectoryPath & "\Resources\"
 
@@ -32,7 +27,6 @@
         PlatinumPic.Image = Image.FromFile(path & "platinumcoin.png")
         buttons = {d4btn, d6btn, d8btn, d10btn, d12btn, d20btn}
         dicepic = {"d4", "d6", "d8", "d10", "d12", "d20"}
-        Playername.Text = ""
         Try
             For f As Integer = 0 To buttons.Length - 1 Step 1
                 buttons(f).Text = ""
@@ -51,33 +45,16 @@
             OffToolStripMenuItem.Checked = True
         End If
         My.Application.SaveMySettingsOnExit = True
-        ListBox1.SelectedIndex = 0
         If Debugger.IsAttached = True Then
             testbtn.Visible = True
-            Button12.Visible = True
         Else
             testbtn.Visible = False
-            Button12.Visible = False
         End If
-        httppath = {"http://paizo.com/pathfinderRPG/prd/skillDescriptions.html", _
-                    "http://paizo.com/pathfinderRPG/prd/combat.html", _
-                    "http://paizo.com/pathfinderRPG/", _
-                    "http://paizo.com/pathfinderRPG/prd/races.html", _
-                    "http://paizo.com/pathfinderRPG/prd/classes.html", _
-                    "http://paizo.com/pathfinderRPG/prd/feats.html", _
-                    "http://paizo.com/pathfinderRPG/prd/equipment.html", _
-                    "http://paizo.com/pathfinderRPG/prd/magic.html", _
-                    "http://paizo.com/pathfinderRPG/prd/spellLists.html", _
-                    "http://paizo.com/pathfinderRPG/prd/gamemastering.html", _
-                    "http://paizo.com/pathfinderRPG/prd/magicItems.html"}
+        TextBox1.Focus()
     End Sub
 
     Private Sub ExitToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles ExitToolStripMenuItem.Click
-        Try
             Me.Close()
-        Catch ex As Exception
-            MsgBox(ex, MsgBoxStyle.Critical, "ERROR - Talk to SaNe about this!")
-        End Try
     End Sub
 
     Private Sub SaveToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles SaveToolStripMenuItem.Click
@@ -112,70 +89,32 @@
         My.Settings.splashscreen = False
     End Sub
 
-    Private Sub GoldBankToolStripMenuItem_Click(sender As Object, e As System.EventArgs) Handles GoldBankToolStripMenuItem.Click
-        If GoldBankPanel.Visible = True Then
-            GoldBankPanel.Hide()
-        Else
-            GoldBankPanel.Show()
-        End If
-        resizewin()
-    End Sub
-
-    Private Sub DiceRollerToolStripMenuItem_Click(sender As Object, e As System.EventArgs) Handles DiceRollerToolStripMenuItem.Click
-        If DiceRollerPanel.Visible = True Then
-            DiceRollerPanel.Hide()
-        Else
-            DiceRollerPanel.Show()
-        End If
-        resizewin()
-    End Sub
-
-    Private Sub InfoToolStripMenuItem_Click(sender As Object, e As System.EventArgs) Handles InfoToolStripMenuItem.Click
-        If InfoPanel.Visible = True Then
-            InfoPanel.Hide()
-        Else
-            InfoPanel.Show()
-        End If
-        resizewin()
-    End Sub
-
     Private Sub testbtn_Click(sender As System.Object, e As System.EventArgs) Handles testbtn.Click
-        For x As Integer = 0 To ListBox1.Items.Count - 1 Step 1
-            Console.WriteLine(copperpiece(x) & " / " & silverpiece(x) & " / " & goldpiece(x) & " / " & platinumpiece(x))
+        For x As Integer = 0 To ComboBox1.Items.Count - 1 Step 1
+            Console.WriteLine(cop.Item(x) & " / " & silv.Item(x) & " / " & gold.Item(x) & " / " & plat.Item(x))
         Next
-        Console.WriteLine(copperpiece.Length.ToString)
-    End Sub
-
-    Private Sub ListBox1_SelectedIndexChanged(sender As Object, e As System.EventArgs) Handles ListBox1.SelectedIndexChanged
-        Try
-            Playername.Text = ListBox1.SelectedItem.ToString
-            CopperLabel.Text = copperpiece(ListBox1.SelectedIndex.ToString)
-            SilverLabel.Text = silverpiece(ListBox1.SelectedIndex.ToString)
-            GoldLabel.Text = goldpiece(ListBox1.SelectedIndex.ToString)
-            PlatinumLabel.Text = platinumpiece(ListBox1.SelectedIndex.ToString)
-        Catch ex As Exception
-        End Try
     End Sub
 
     Private Sub addplayerbtn_Click(sender As System.Object, e As System.EventArgs) Handles addplayerbtn.Click
-        If Not ListBox1.Items.Count = 9 Then
-            AddPlayer.ShowDialog()
-        Else
-            MsgBox("Cannot add more Players.")
+        If TextBox1.Text = "" Then
+            TextBox1.Text = "Player"
         End If
+        ComboBox1.Items.Add(TextBox1.Text)
+        cop.Add(0)
+        silv.Add(0)
+        gold.Add(0)
+        plat.Add(0)
+        ComboBox1.SelectedIndex = ComboBox1.Items.Count - 1
     End Sub
 
     Private Sub removeplayer_Click(sender As System.Object, e As System.EventArgs) Handles removeplayer.Click
-        Try
-            Dim c As Integer
-            c = ListBox1.SelectedIndex
-            ListBox1.Items.RemoveAt(c)
-            If c = ListBox1.Items.Count Then
-                c = c - 1
-            End If
-            ListBox1.SelectedIndex = c
-        Catch ex As Exception
-        End Try
+        Dim c As Integer = ComboBox1.SelectedIndex
+        ComboBox1.Items.RemoveAt(c)
+        cop.RemoveAt(c)
+        silv.RemoveAt(c)
+        gold.RemoveAt(c)
+        plat.RemoveAt(c)
+        ComboBox1.SelectedIndex = c - 1
     End Sub
 
     Private Sub d4btn_Click(sender As System.Object, e As System.EventArgs) Handles d4btn.Click
@@ -234,63 +173,9 @@
         ListView1.Focus()
     End Sub
 
-    Private Sub nameadd_Click(sender As System.Object, e As System.EventArgs)
-        ListBox1.Items.Insert(ListBox1.SelectedIndex, Playername.Text)
-        ListBox1.Items.RemoveAt(ListBox1.SelectedIndex)
-        ListBox1.SelectedIndex = 0
-    End Sub
-
     Private Sub Clear_Click(sender As System.Object, e As System.EventArgs) Handles Clear.Click
         ListView1.Clear()
         RichTextBox1.Clear()
-    End Sub
-
-    Private Sub Button1_Click(sender As System.Object, e As System.EventArgs) Handles Button1.Click
-        System.Diagnostics.Process.Start(httppath(0))
-    End Sub
-
-    Private Sub Button2_Click(sender As System.Object, e As System.EventArgs) Handles Button2.Click
-        System.Diagnostics.Process.Start(httppath(1))
-    End Sub
-
-    Private Sub Button3_Click(sender As System.Object, e As System.EventArgs) Handles Button3.Click
-        System.Diagnostics.Process.Start(httppath(2))
-    End Sub
-
-    Private Sub Button4_Click_1(sender As System.Object, e As System.EventArgs) Handles Button4.Click
-        System.Diagnostics.Process.Start(httppath(3))
-    End Sub
-
-    Private Sub Button5_Click_1(sender As System.Object, e As System.EventArgs) Handles Button5.Click
-        System.Diagnostics.Process.Start(httppath(4))
-    End Sub
-
-    Private Sub Button6_Click_1(sender As System.Object, e As System.EventArgs) Handles Button6.Click
-        System.Diagnostics.Process.Start(httppath(5))
-    End Sub
-
-    Private Sub Button7_Click(sender As System.Object, e As System.EventArgs) Handles Button7.Click
-        System.Diagnostics.Process.Start(httppath(6))
-    End Sub
-
-    Private Sub Button8_Click(sender As System.Object, e As System.EventArgs) Handles Button8.Click
-        System.Diagnostics.Process.Start(httppath(7))
-    End Sub
-
-    Private Sub Button9_Click(sender As System.Object, e As System.EventArgs) Handles Button9.Click
-        System.Diagnostics.Process.Start(httppath(8))
-    End Sub
-
-    Private Sub Button10_Click(sender As System.Object, e As System.EventArgs) Handles Button10.Click
-        System.Diagnostics.Process.Start(httppath(9))
-    End Sub
-
-    Private Sub Button11_Click(sender As System.Object, e As System.EventArgs) Handles Button11.Click
-        System.Diagnostics.Process.Start(httppath(10))
-    End Sub
-
-    Private Sub Button12_Click(sender As System.Object, e As System.EventArgs) Handles Button12.Click
-        MsgBox("WORK IN PROGRESS")
     End Sub
 
     Private Sub InformationToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles InformationToolStripMenuItem.Click
@@ -314,33 +199,24 @@
         RichTextBox1.SelectionStart = 0
     End Sub
 
-    Private Function pic_change(sender As Label, imagectrl As PictureBox, imagetext As String)
-        If CInt(sender.Text) >= 500 Then
-            imagectrl.Image = Image.FromFile(path & imagetext + "bars.png")
-        ElseIf CInt(sender.Text) < 500 Then
-            imagectrl.Image = Image.FromFile(path & imagetext + "coin.png")
-        End If
-        Return True
-    End Function
-
     Private Sub CopperPic_MouseDown(sender As Object, e As MouseEventArgs) Handles CopperPic.MouseDown
-        Dim i As String = ListBox1.SelectedIndex.ToString
+        Dim i As Integer = ComboBox1.SelectedIndex
         If Amount.Text Is "" Then
             MsgBox("Amount cannot be nothing.")
         Else
             If e.Button = Windows.Forms.MouseButtons.Left Then
-                If (copperpiece(i) + CInt(Amount.Text)) > 999999 Then
+                If (cop.Item(i) + CInt(Amount.Text)) > 999999 Then
                     MsgBox("Cannot add any more.")
                 Else
-                    copperpiece(i) += CInt(Amount.Text)
-                    CopperLabel.Text = copperpiece(i)
+                    cop.Item(i) += CInt(Amount.Text)
+                    CopperLabel.Text = cop.Item(i)
                 End If
             ElseIf e.Button = Windows.Forms.MouseButtons.Right Then
-                If (copperpiece(i) - CInt(Amount.Text)) < 0 Then
+                If (cop.Item(i) - CInt(Amount.Text)) < 0 Then
                     MsgBox("Cannot subtract any more.")
                 Else
-                    copperpiece(i) -= CInt(Amount.Text)
-                    CopperLabel.Text = copperpiece(i)
+                    cop.Item(i) -= CInt(Amount.Text)
+                    CopperLabel.Text = cop.Item(i)
                 End If
             End If
         End If
@@ -348,23 +224,23 @@
     End Sub
 
     Private Sub SilverPic_MouseDown(sender As Object, e As MouseEventArgs) Handles SilverPic.MouseDown
-        Dim i As String = ListBox1.SelectedIndex.ToString
+        Dim i As Integer = ComboBox1.SelectedIndex
         If Amount.Text Is "" Then
             MsgBox("Amount cannot be nothing.")
         Else
             If e.Button = Windows.Forms.MouseButtons.Left Then
-                If (silverpiece(i) + CInt(Amount.Text)) > 999999 Then
+                If (silv.Item(i) + CInt(Amount.Text)) > 999999 Then
                     MsgBox("Cannot add any more.")
                 Else
-                    silverpiece(i) += CInt(Amount.Text)
-                    SilverLabel.Text = silverpiece(i)
+                    silv.Item(i) += CInt(Amount.Text)
+                    SilverLabel.Text = silv.Item(i)
                 End If
             ElseIf e.Button = Windows.Forms.MouseButtons.Right Then
-                If (silverpiece(i) - CInt(Amount.Text)) < 0 Then
+                If (silv.Item(i) - CInt(Amount.Text)) < 0 Then
                     MsgBox("Cannot subtract any more.")
                 Else
-                    silverpiece(i) -= CInt(Amount.Text)
-                    SilverLabel.Text = silverpiece(i)
+                    silv.Item(i) -= CInt(Amount.Text)
+                    SilverLabel.Text = silv.Item(i)
                 End If
             End If
         End If
@@ -372,23 +248,23 @@
     End Sub
 
     Private Sub GoldPic_MouseDown(sender As Object, e As MouseEventArgs) Handles GoldPic.MouseDown
-        Dim i As String = ListBox1.SelectedIndex.ToString
+        Dim i As Integer = ComboBox1.SelectedIndex
         If Amount.Text Is "" Then
             MsgBox("Amount cannot be nothing.")
         Else
             If e.Button = Windows.Forms.MouseButtons.Left Then
-                If (goldpiece(i) + CInt(Amount.Text)) > 999999 Then
+                If (gold.Item(i) + CInt(Amount.Text)) > 999999 Then
                     MsgBox("Cannot add any more.")
                 Else
-                    goldpiece(i) += CInt(Amount.Text)
-                    GoldLabel.Text = goldpiece(i)
+                    gold.Item(i) += CInt(Amount.Text)
+                    GoldLabel.Text = gold.Item(i)
                 End If
             ElseIf e.Button = Windows.Forms.MouseButtons.Right Then
-                If (goldpiece(i) - CInt(Amount.Text)) < 0 Then
+                If (gold.Item(i) - CInt(Amount.Text)) < 0 Then
                     MsgBox("Cannot subtract any more.")
                 Else
-                    goldpiece(i) -= CInt(Amount.Text)
-                    GoldLabel.Text = goldpiece(i)
+                    gold.Item(i) -= CInt(Amount.Text)
+                    GoldLabel.Text = gold.Item(i)
                 End If
             End If
         End If
@@ -396,26 +272,34 @@
     End Sub
 
     Private Sub PlatinumPic_MouseDown(sender As Object, e As MouseEventArgs) Handles PlatinumPic.MouseDown
-        Dim i As String = ListBox1.SelectedIndex.ToString
+        Dim i As Integer = ComboBox1.SelectedIndex
         If Amount.Text Is "" Then
             MsgBox("Amount cannot be nothing.")
         Else
             If e.Button = Windows.Forms.MouseButtons.Left Then
-                If (platinumpiece(i) + CInt(Amount.Text)) > 999999 Then
+                If (plat.Item(i) + CInt(Amount.Text)) > 999999 Then
                     MsgBox("Cannot add any more.")
                 Else
-                    platinumpiece(i) += CInt(Amount.Text)
-                    PlatinumLabel.Text = platinumpiece(i)
+                    plat.Item(i) += CInt(Amount.Text)
+                    PlatinumLabel.Text = plat.Item(i)
                 End If
             ElseIf e.Button = Windows.Forms.MouseButtons.Right Then
-                If (platinumpiece(i) - CInt(Amount.Text)) < 0 Then
+                If (plat.Item(i) - CInt(Amount.Text)) < 0 Then
                     MsgBox("Cannot subtract any more.")
                 Else
-                    platinumpiece(i) -= CInt(Amount.Text)
-                    PlatinumLabel.Text = platinumpiece(i)
+                    plat.Item(i) -= CInt(Amount.Text)
+                    PlatinumLabel.Text = plat.Item(i)
                 End If
             End If
         End If
         pic_change(PlatinumLabel, PlatinumPic, "platinum")
+    End Sub
+
+    Private Sub ComboBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox1.SelectedIndexChanged
+        Dim i As Integer = ComboBox1.SelectedIndex
+        CopperLabel.Text = cop.Item(i)
+        SilverLabel.Text = silv.Item(i)
+        GoldLabel.Text = gold.Item(i)
+        PlatinumLabel.Text = plat.Item(i)
     End Sub
 End Class

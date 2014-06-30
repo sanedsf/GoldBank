@@ -37,22 +37,18 @@ Partial Class Main
         Me.SplashScreenToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.OnToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.OffToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.TablesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.GoldBankToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.DiceRollerToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.InfoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AboutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.InformationToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.dicenumber = New System.Windows.Forms.TextBox()
         Me.PlayerListlbl = New System.Windows.Forms.Label()
         Me.GroupBox5 = New System.Windows.Forms.GroupBox()
-        Me.Button12 = New System.Windows.Forms.Button()
-        Me.ListBox1 = New System.Windows.Forms.ListBox()
+        Me.Label10 = New System.Windows.Forms.Label()
+        Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.removeplayer = New System.Windows.Forms.Button()
         Me.addplayerbtn = New System.Windows.Forms.Button()
         Me.PlayerInfolbl = New System.Windows.Forms.Label()
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
-        Me.Playername = New System.Windows.Forms.Label()
+        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
         Me.Label151 = New System.Windows.Forms.Label()
         Me.Label153 = New System.Windows.Forms.Label()
         Me.Amount = New System.Windows.Forms.TextBox()
@@ -92,23 +88,6 @@ Partial Class Main
         Me.Diceroller = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
-        Me.Label13 = New System.Windows.Forms.Label()
-        Me.GroupBox3 = New System.Windows.Forms.GroupBox()
-        Me.Button11 = New System.Windows.Forms.Button()
-        Me.Button10 = New System.Windows.Forms.Button()
-        Me.Button6 = New System.Windows.Forms.Button()
-        Me.Button5 = New System.Windows.Forms.Button()
-        Me.Button4 = New System.Windows.Forms.Button()
-        Me.Button9 = New System.Windows.Forms.Button()
-        Me.Button8 = New System.Windows.Forms.Button()
-        Me.Button7 = New System.Windows.Forms.Button()
-        Me.Button3 = New System.Windows.Forms.Button()
-        Me.Button2 = New System.Windows.Forms.Button()
-        Me.Button1 = New System.Windows.Forms.Button()
-        Me.DiceRollerPanel = New System.Windows.Forms.Panel()
-        Me.GoldBankPanel = New System.Windows.Forms.Panel()
-        Me.InfoPanel = New System.Windows.Forms.Panel()
-        Me.FlowLayoutPanel1 = New System.Windows.Forms.FlowLayoutPanel()
         Me.SaveFileDialog1 = New System.Windows.Forms.SaveFileDialog()
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
         CType(Me.CopperPic, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -122,11 +101,6 @@ Partial Class Main
         Me.GroupBox7.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
-        Me.GroupBox3.SuspendLayout()
-        Me.DiceRollerPanel.SuspendLayout()
-        Me.GoldBankPanel.SuspendLayout()
-        Me.InfoPanel.SuspendLayout()
-        Me.FlowLayoutPanel1.SuspendLayout()
         Me.SuspendLayout()
         '
         'CopperPic
@@ -176,7 +150,7 @@ Partial Class Main
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
         Me.MenuStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional
-        Me.MenuStrip1.Size = New System.Drawing.Size(988, 24)
+        Me.MenuStrip1.Size = New System.Drawing.Size(505, 24)
         Me.MenuStrip1.TabIndex = 61
         Me.MenuStrip1.Text = "MenuStrip1"
         '
@@ -191,26 +165,26 @@ Partial Class Main
         '
         Me.SaveToolStripMenuItem.Name = "SaveToolStripMenuItem"
         Me.SaveToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.S), System.Windows.Forms.Keys)
-        Me.SaveToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.SaveToolStripMenuItem.Size = New System.Drawing.Size(143, 22)
         Me.SaveToolStripMenuItem.Text = "Save"
         '
         'LoadToolStripMenuItem
         '
         Me.LoadToolStripMenuItem.Name = "LoadToolStripMenuItem"
         Me.LoadToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.O), System.Windows.Forms.Keys)
-        Me.LoadToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.LoadToolStripMenuItem.Size = New System.Drawing.Size(143, 22)
         Me.LoadToolStripMenuItem.Text = "Load"
         '
         'ExitToolStripMenuItem
         '
         Me.ExitToolStripMenuItem.Name = "ExitToolStripMenuItem"
         Me.ExitToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Alt Or System.Windows.Forms.Keys.F4), System.Windows.Forms.Keys)
-        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(143, 22)
         Me.ExitToolStripMenuItem.Text = "Exit"
         '
         'OptionsToolStripMenuItem
         '
-        Me.OptionsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SplashScreenToolStripMenuItem, Me.TablesToolStripMenuItem})
+        Me.OptionsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SplashScreenToolStripMenuItem})
         Me.OptionsToolStripMenuItem.Name = "OptionsToolStripMenuItem"
         Me.OptionsToolStripMenuItem.Size = New System.Drawing.Size(61, 20)
         Me.OptionsToolStripMenuItem.Text = "Options"
@@ -235,40 +209,6 @@ Partial Class Main
         Me.OffToolStripMenuItem.Name = "OffToolStripMenuItem"
         Me.OffToolStripMenuItem.Size = New System.Drawing.Size(91, 22)
         Me.OffToolStripMenuItem.Text = "Off"
-        '
-        'TablesToolStripMenuItem
-        '
-        Me.TablesToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.GoldBankToolStripMenuItem, Me.DiceRollerToolStripMenuItem, Me.InfoToolStripMenuItem})
-        Me.TablesToolStripMenuItem.Name = "TablesToolStripMenuItem"
-        Me.TablesToolStripMenuItem.Size = New System.Drawing.Size(143, 22)
-        Me.TablesToolStripMenuItem.Text = "Tables"
-        '
-        'GoldBankToolStripMenuItem
-        '
-        Me.GoldBankToolStripMenuItem.Checked = True
-        Me.GoldBankToolStripMenuItem.CheckOnClick = True
-        Me.GoldBankToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked
-        Me.GoldBankToolStripMenuItem.Name = "GoldBankToolStripMenuItem"
-        Me.GoldBankToolStripMenuItem.Size = New System.Drawing.Size(130, 22)
-        Me.GoldBankToolStripMenuItem.Text = "Gold Bank"
-        '
-        'DiceRollerToolStripMenuItem
-        '
-        Me.DiceRollerToolStripMenuItem.Checked = True
-        Me.DiceRollerToolStripMenuItem.CheckOnClick = True
-        Me.DiceRollerToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked
-        Me.DiceRollerToolStripMenuItem.Name = "DiceRollerToolStripMenuItem"
-        Me.DiceRollerToolStripMenuItem.Size = New System.Drawing.Size(130, 22)
-        Me.DiceRollerToolStripMenuItem.Text = "Dice Roller"
-        '
-        'InfoToolStripMenuItem
-        '
-        Me.InfoToolStripMenuItem.Checked = True
-        Me.InfoToolStripMenuItem.CheckOnClick = True
-        Me.InfoToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked
-        Me.InfoToolStripMenuItem.Name = "InfoToolStripMenuItem"
-        Me.InfoToolStripMenuItem.Size = New System.Drawing.Size(130, 22)
-        Me.InfoToolStripMenuItem.Text = "Info"
         '
         'AboutToolStripMenuItem
         '
@@ -297,7 +237,7 @@ Partial Class Main
         '
         Me.PlayerListlbl.AutoSize = True
         Me.PlayerListlbl.Font = New System.Drawing.Font("Mistral", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.PlayerListlbl.Location = New System.Drawing.Point(17, 20)
+        Me.PlayerListlbl.Location = New System.Drawing.Point(17, 25)
         Me.PlayerListlbl.Name = "PlayerListlbl"
         Me.PlayerListlbl.Size = New System.Drawing.Size(86, 26)
         Me.PlayerListlbl.TabIndex = 80
@@ -305,37 +245,36 @@ Partial Class Main
         '
         'GroupBox5
         '
-        Me.GroupBox5.Controls.Add(Me.Button12)
-        Me.GroupBox5.Controls.Add(Me.ListBox1)
+        Me.GroupBox5.Controls.Add(Me.Label10)
+        Me.GroupBox5.Controls.Add(Me.TextBox1)
         Me.GroupBox5.Controls.Add(Me.removeplayer)
         Me.GroupBox5.Controls.Add(Me.addplayerbtn)
         Me.GroupBox5.Location = New System.Drawing.Point(6, 29)
         Me.GroupBox5.Name = "GroupBox5"
-        Me.GroupBox5.Size = New System.Drawing.Size(240, 167)
+        Me.GroupBox5.Size = New System.Drawing.Size(230, 167)
         Me.GroupBox5.TabIndex = 160
         Me.GroupBox5.TabStop = False
         '
-        'Button12
+        'Label10
         '
-        Me.Button12.Location = New System.Drawing.Point(142, 136)
-        Me.Button12.Name = "Button12"
-        Me.Button12.Size = New System.Drawing.Size(88, 23)
-        Me.Button12.TabIndex = 154
-        Me.Button12.Text = "Player Stats"
-        Me.Button12.UseVisualStyleBackColor = True
+        Me.Label10.AutoSize = True
+        Me.Label10.Location = New System.Drawing.Point(55, 46)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(139, 13)
+        Me.Label10.TabIndex = 155
+        Me.Label10.Text = "Insert name of player below:"
         '
-        'ListBox1
+        'TextBox1
         '
-        Me.ListBox1.FormattingEnabled = True
-        Me.ListBox1.Items.AddRange(New Object() {"Player 1"})
-        Me.ListBox1.Location = New System.Drawing.Point(16, 25)
-        Me.ListBox1.Name = "ListBox1"
-        Me.ListBox1.Size = New System.Drawing.Size(120, 134)
-        Me.ListBox1.TabIndex = 151
+        Me.TextBox1.Location = New System.Drawing.Point(42, 62)
+        Me.TextBox1.MaxLength = 20
+        Me.TextBox1.Name = "TextBox1"
+        Me.TextBox1.Size = New System.Drawing.Size(161, 20)
+        Me.TextBox1.TabIndex = 154
         '
         'removeplayer
         '
-        Me.removeplayer.Location = New System.Drawing.Point(142, 54)
+        Me.removeplayer.Location = New System.Drawing.Point(125, 113)
         Me.removeplayer.Name = "removeplayer"
         Me.removeplayer.Size = New System.Drawing.Size(88, 23)
         Me.removeplayer.TabIndex = 153
@@ -344,7 +283,7 @@ Partial Class Main
         '
         'addplayerbtn
         '
-        Me.addplayerbtn.Location = New System.Drawing.Point(142, 25)
+        Me.addplayerbtn.Location = New System.Drawing.Point(31, 113)
         Me.addplayerbtn.Name = "addplayerbtn"
         Me.addplayerbtn.Size = New System.Drawing.Size(88, 23)
         Me.addplayerbtn.TabIndex = 152
@@ -356,7 +295,7 @@ Partial Class Main
         Me.PlayerInfolbl.AutoSize = True
         Me.PlayerInfolbl.BackColor = System.Drawing.SystemColors.Control
         Me.PlayerInfolbl.Font = New System.Drawing.Font("Mistral", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.PlayerInfolbl.Location = New System.Drawing.Point(381, 20)
+        Me.PlayerInfolbl.Location = New System.Drawing.Point(248, 25)
         Me.PlayerInfolbl.Name = "PlayerInfolbl"
         Me.PlayerInfolbl.Size = New System.Drawing.Size(88, 26)
         Me.PlayerInfolbl.TabIndex = 158
@@ -364,7 +303,7 @@ Partial Class Main
         '
         'GroupBox4
         '
-        Me.GroupBox4.Controls.Add(Me.Playername)
+        Me.GroupBox4.Controls.Add(Me.ComboBox1)
         Me.GroupBox4.Controls.Add(Me.Label151)
         Me.GroupBox4.Controls.Add(Me.PlatinumPic)
         Me.GroupBox4.Controls.Add(Me.Label153)
@@ -376,20 +315,19 @@ Partial Class Main
         Me.GroupBox4.Controls.Add(Me.GoldLabel)
         Me.GroupBox4.Controls.Add(Me.CopperLabel)
         Me.GroupBox4.Controls.Add(Me.SilverLabel)
-        Me.GroupBox4.Location = New System.Drawing.Point(252, 29)
+        Me.GroupBox4.Location = New System.Drawing.Point(242, 29)
         Me.GroupBox4.Name = "GroupBox4"
         Me.GroupBox4.Size = New System.Drawing.Size(226, 167)
         Me.GroupBox4.TabIndex = 159
         Me.GroupBox4.TabStop = False
         '
-        'Playername
+        'ComboBox1
         '
-        Me.Playername.Location = New System.Drawing.Point(48, 21)
-        Me.Playername.Name = "Playername"
-        Me.Playername.Size = New System.Drawing.Size(109, 20)
-        Me.Playername.TabIndex = 159
-        Me.Playername.Text = "Label10"
-        Me.Playername.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.ComboBox1.FormattingEnabled = True
+        Me.ComboBox1.Location = New System.Drawing.Point(55, 22)
+        Me.ComboBox1.Name = "ComboBox1"
+        Me.ComboBox1.Size = New System.Drawing.Size(154, 21)
+        Me.ComboBox1.TabIndex = 157
         '
         'Label151
         '
@@ -758,7 +696,7 @@ Partial Class Main
         Me.Goldtable.BackColor = System.Drawing.SystemColors.Control
         Me.Goldtable.Font = New System.Drawing.Font("Papyrus", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Goldtable.ForeColor = System.Drawing.SystemColors.InfoText
-        Me.Goldtable.Location = New System.Drawing.Point(184, -6)
+        Me.Goldtable.Location = New System.Drawing.Point(184, -5)
         Me.Goldtable.Name = "Goldtable"
         Me.Goldtable.Size = New System.Drawing.Size(138, 38)
         Me.Goldtable.TabIndex = 151
@@ -769,7 +707,7 @@ Partial Class Main
         Me.Diceroller.AutoSize = True
         Me.Diceroller.Font = New System.Drawing.Font("Papyrus", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Diceroller.ForeColor = System.Drawing.SystemColors.InfoText
-        Me.Diceroller.Location = New System.Drawing.Point(186, 0)
+        Me.Diceroller.Location = New System.Drawing.Point(200, 248)
         Me.Diceroller.Name = "Diceroller"
         Me.Diceroller.Size = New System.Drawing.Size(138, 38)
         Me.Diceroller.TabIndex = 152
@@ -783,9 +721,9 @@ Partial Class Main
         Me.GroupBox1.Controls.Add(Me.PlayerListlbl)
         Me.GroupBox1.Controls.Add(Me.GroupBox5)
         Me.GroupBox1.Controls.Add(Me.GroupBox4)
-        Me.GroupBox1.Location = New System.Drawing.Point(6, 6)
+        Me.GroupBox1.Location = New System.Drawing.Point(19, 38)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(484, 202)
+        Me.GroupBox1.Size = New System.Drawing.Size(474, 202)
         Me.GroupBox1.TabIndex = 153
         Me.GroupBox1.TabStop = False
         '
@@ -796,201 +734,21 @@ Partial Class Main
         Me.GroupBox2.Controls.Add(Me.Label3)
         Me.GroupBox2.Controls.Add(Me.GroupBox7)
         Me.GroupBox2.Controls.Add(Me.GroupBox6)
-        Me.GroupBox2.Location = New System.Drawing.Point(5, 6)
+        Me.GroupBox2.Location = New System.Drawing.Point(19, 254)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Size = New System.Drawing.Size(474, 309)
         Me.GroupBox2.TabIndex = 154
         Me.GroupBox2.TabStop = False
-        '
-        'Label13
-        '
-        Me.Label13.AutoSize = True
-        Me.Label13.Font = New System.Drawing.Font("Papyrus", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label13.ForeColor = System.Drawing.SystemColors.InfoText
-        Me.Label13.Location = New System.Drawing.Point(196, -5)
-        Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(120, 38)
-        Me.Label13.TabIndex = 155
-        Me.Label13.Text = "More Info"
-        '
-        'GroupBox3
-        '
-        Me.GroupBox3.BackColor = System.Drawing.SystemColors.Control
-        Me.GroupBox3.Controls.Add(Me.Button11)
-        Me.GroupBox3.Controls.Add(Me.Button10)
-        Me.GroupBox3.Controls.Add(Me.Button6)
-        Me.GroupBox3.Controls.Add(Me.Button5)
-        Me.GroupBox3.Controls.Add(Me.Button4)
-        Me.GroupBox3.Controls.Add(Me.Button9)
-        Me.GroupBox3.Controls.Add(Me.Button8)
-        Me.GroupBox3.Controls.Add(Me.Button7)
-        Me.GroupBox3.Controls.Add(Me.Button3)
-        Me.GroupBox3.Controls.Add(Me.Label13)
-        Me.GroupBox3.Controls.Add(Me.Button2)
-        Me.GroupBox3.Controls.Add(Me.Button1)
-        Me.GroupBox3.Location = New System.Drawing.Point(6, 6)
-        Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Size = New System.Drawing.Size(484, 90)
-        Me.GroupBox3.TabIndex = 156
-        Me.GroupBox3.TabStop = False
-        '
-        'Button11
-        '
-        Me.Button11.AutoSize = True
-        Me.Button11.Location = New System.Drawing.Point(404, 19)
-        Me.Button11.Name = "Button11"
-        Me.Button11.Size = New System.Drawing.Size(74, 23)
-        Me.Button11.TabIndex = 165
-        Me.Button11.Text = "Magic Items"
-        Me.Button11.UseVisualStyleBackColor = True
-        '
-        'Button10
-        '
-        Me.Button10.AutoSize = True
-        Me.Button10.Location = New System.Drawing.Point(212, 36)
-        Me.Button10.Name = "Button10"
-        Me.Button10.Size = New System.Drawing.Size(90, 23)
-        Me.Button10.TabIndex = 164
-        Me.Button10.Text = "Gamemastering"
-        Me.Button10.UseVisualStyleBackColor = True
-        '
-        'Button6
-        '
-        Me.Button6.AutoSize = True
-        Me.Button6.Location = New System.Drawing.Point(80, 50)
-        Me.Button6.Name = "Button6"
-        Me.Button6.Size = New System.Drawing.Size(43, 23)
-        Me.Button6.TabIndex = 163
-        Me.Button6.Text = "Feats"
-        Me.Button6.UseVisualStyleBackColor = True
-        '
-        'Button5
-        '
-        Me.Button5.AutoSize = True
-        Me.Button5.Location = New System.Drawing.Point(105, 19)
-        Me.Button5.Name = "Button5"
-        Me.Button5.Size = New System.Drawing.Size(53, 23)
-        Me.Button5.TabIndex = 162
-        Me.Button5.Text = "Classes"
-        Me.Button5.UseVisualStyleBackColor = True
-        '
-        'Button4
-        '
-        Me.Button4.AutoSize = True
-        Me.Button4.Location = New System.Drawing.Point(51, 19)
-        Me.Button4.Name = "Button4"
-        Me.Button4.Size = New System.Drawing.Size(48, 23)
-        Me.Button4.TabIndex = 161
-        Me.Button4.Text = "Races"
-        Me.Button4.UseVisualStyleBackColor = True
-        '
-        'Button9
-        '
-        Me.Button9.AutoSize = True
-        Me.Button9.Location = New System.Drawing.Point(339, 19)
-        Me.Button9.Name = "Button9"
-        Me.Button9.Size = New System.Drawing.Size(59, 23)
-        Me.Button9.TabIndex = 160
-        Me.Button9.Text = "Spell List"
-        Me.Button9.UseVisualStyleBackColor = True
-        '
-        'Button8
-        '
-        Me.Button8.AutoSize = True
-        Me.Button8.Location = New System.Drawing.Point(415, 48)
-        Me.Button8.Name = "Button8"
-        Me.Button8.Size = New System.Drawing.Size(46, 23)
-        Me.Button8.TabIndex = 159
-        Me.Button8.Text = "Magic"
-        Me.Button8.UseVisualStyleBackColor = True
-        '
-        'Button7
-        '
-        Me.Button7.AutoSize = True
-        Me.Button7.Location = New System.Drawing.Point(224, 62)
-        Me.Button7.Name = "Button7"
-        Me.Button7.Size = New System.Drawing.Size(67, 23)
-        Me.Button7.TabIndex = 158
-        Me.Button7.Text = "Equipment"
-        Me.Button7.UseVisualStyleBackColor = True
-        '
-        'Button3
-        '
-        Me.Button3.AutoSize = True
-        Me.Button3.Location = New System.Drawing.Point(6, 19)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(39, 23)
-        Me.Button3.TabIndex = 157
-        Me.Button3.Text = "Misc"
-        Me.Button3.UseVisualStyleBackColor = True
-        '
-        'Button2
-        '
-        Me.Button2.AutoSize = True
-        Me.Button2.Location = New System.Drawing.Point(356, 48)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(53, 23)
-        Me.Button2.TabIndex = 2
-        Me.Button2.Text = "Combat"
-        Me.Button2.UseVisualStyleBackColor = True
-        '
-        'Button1
-        '
-        Me.Button1.AutoSize = True
-        Me.Button1.Location = New System.Drawing.Point(33, 49)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(41, 23)
-        Me.Button1.TabIndex = 1
-        Me.Button1.Text = "Skills"
-        Me.Button1.UseVisualStyleBackColor = True
-        '
-        'DiceRollerPanel
-        '
-        Me.DiceRollerPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.DiceRollerPanel.Controls.Add(Me.Diceroller)
-        Me.DiceRollerPanel.Controls.Add(Me.GroupBox2)
-        Me.DiceRollerPanel.Location = New System.Drawing.Point(504, 3)
-        Me.DiceRollerPanel.Name = "DiceRollerPanel"
-        Me.DiceRollerPanel.Size = New System.Drawing.Size(482, 318)
-        Me.DiceRollerPanel.TabIndex = 157
-        '
-        'GoldBankPanel
-        '
-        Me.GoldBankPanel.BackColor = System.Drawing.SystemColors.Control
-        Me.GoldBankPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.GoldBankPanel.Controls.Add(Me.GroupBox1)
-        Me.GoldBankPanel.Location = New System.Drawing.Point(3, 3)
-        Me.GoldBankPanel.Name = "GoldBankPanel"
-        Me.GoldBankPanel.Size = New System.Drawing.Size(495, 213)
-        Me.GoldBankPanel.TabIndex = 158
-        '
-        'InfoPanel
-        '
-        Me.InfoPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.InfoPanel.Controls.Add(Me.GroupBox3)
-        Me.InfoPanel.Location = New System.Drawing.Point(3, 222)
-        Me.InfoPanel.Name = "InfoPanel"
-        Me.InfoPanel.Size = New System.Drawing.Size(495, 99)
-        Me.InfoPanel.TabIndex = 159
-        '
-        'FlowLayoutPanel1
-        '
-        Me.FlowLayoutPanel1.Controls.Add(Me.GoldBankPanel)
-        Me.FlowLayoutPanel1.Controls.Add(Me.InfoPanel)
-        Me.FlowLayoutPanel1.Controls.Add(Me.DiceRollerPanel)
-        Me.FlowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown
-        Me.FlowLayoutPanel1.Location = New System.Drawing.Point(0, 27)
-        Me.FlowLayoutPanel1.Name = "FlowLayoutPanel1"
-        Me.FlowLayoutPanel1.Size = New System.Drawing.Size(990, 325)
-        Me.FlowLayoutPanel1.TabIndex = 160
         '
         'Main
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.ClientSize = New System.Drawing.Size(988, 350)
-        Me.Controls.Add(Me.FlowLayoutPanel1)
+        Me.ClientSize = New System.Drawing.Size(505, 575)
+        Me.Controls.Add(Me.Diceroller)
+        Me.Controls.Add(Me.GroupBox1)
+        Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.MenuStrip1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
@@ -999,7 +757,7 @@ Partial Class Main
         Me.Name = "Main"
         Me.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "Pathfinder - Gold Bank & Dice Roller & Info"
+        Me.Text = "Gold Bank & Dice Roller by AnaRchX"
         CType(Me.CopperPic, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.SilverPic, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.GoldPic, System.ComponentModel.ISupportInitialize).EndInit()
@@ -1007,6 +765,7 @@ Partial Class Main
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()
         Me.GroupBox5.ResumeLayout(False)
+        Me.GroupBox5.PerformLayout()
         Me.GroupBox4.ResumeLayout(False)
         Me.GroupBox4.PerformLayout()
         Me.GroupBox6.ResumeLayout(False)
@@ -1017,13 +776,6 @@ Partial Class Main
         Me.GroupBox1.PerformLayout()
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
-        Me.GroupBox3.ResumeLayout(False)
-        Me.GroupBox3.PerformLayout()
-        Me.DiceRollerPanel.ResumeLayout(False)
-        Me.DiceRollerPanel.PerformLayout()
-        Me.GoldBankPanel.ResumeLayout(False)
-        Me.InfoPanel.ResumeLayout(False)
-        Me.FlowLayoutPanel1.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -1048,23 +800,9 @@ Partial Class Main
     Friend WithEvents SplashScreenToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents OnToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents OffToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents Label13 As System.Windows.Forms.Label
-    Friend WithEvents GroupBox3 As System.Windows.Forms.GroupBox
-    Friend WithEvents Button2 As System.Windows.Forms.Button
-    Friend WithEvents Button1 As System.Windows.Forms.Button
-    Friend WithEvents Button3 As System.Windows.Forms.Button
-    Friend WithEvents TablesToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents GoldBankToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents DiceRollerToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents InfoToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents GoldBankPanel As System.Windows.Forms.Panel
-    Friend WithEvents DiceRollerPanel As System.Windows.Forms.Panel
-    Friend WithEvents InfoPanel As System.Windows.Forms.Panel
-    Friend WithEvents FlowLayoutPanel1 As System.Windows.Forms.FlowLayoutPanel
     Friend WithEvents SaveFileDialog1 As System.Windows.Forms.SaveFileDialog
     Friend WithEvents OpenFileDialog1 As System.Windows.Forms.OpenFileDialog
     Friend WithEvents testbtn As System.Windows.Forms.Button
-    Friend WithEvents ListBox1 As System.Windows.Forms.ListBox
     Friend WithEvents Amount As System.Windows.Forms.TextBox
     Friend WithEvents PlatinumLabel As System.Windows.Forms.Label
     Friend WithEvents GoldLabel As System.Windows.Forms.Label
@@ -1100,20 +838,13 @@ Partial Class Main
     Friend WithEvents GroupBox7 As System.Windows.Forms.GroupBox
     Friend WithEvents AboutToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents InformationToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents Button11 As System.Windows.Forms.Button
-    Friend WithEvents Button10 As System.Windows.Forms.Button
-    Friend WithEvents Button6 As System.Windows.Forms.Button
-    Friend WithEvents Button5 As System.Windows.Forms.Button
-    Friend WithEvents Button4 As System.Windows.Forms.Button
-    Friend WithEvents Button9 As System.Windows.Forms.Button
-    Friend WithEvents Button8 As System.Windows.Forms.Button
-    Friend WithEvents Button7 As System.Windows.Forms.Button
-    Friend WithEvents Button12 As System.Windows.Forms.Button
     Friend WithEvents Label9 As System.Windows.Forms.Label
     Friend WithEvents Modifiers As System.Windows.Forms.TextBox
     Friend WithEvents Label8 As System.Windows.Forms.Label
     Friend WithEvents RichTextBox1 As System.Windows.Forms.RichTextBox
     Friend WithEvents Label11 As System.Windows.Forms.Label
-    Friend WithEvents Playername As System.Windows.Forms.Label
+    Friend WithEvents ComboBox1 As System.Windows.Forms.ComboBox
+    Friend WithEvents TextBox1 As System.Windows.Forms.TextBox
+    Friend WithEvents Label10 As System.Windows.Forms.Label
 
 End Class

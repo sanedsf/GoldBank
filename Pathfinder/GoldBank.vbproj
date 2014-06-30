@@ -8,9 +8,9 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{60EC0DA4-7BD1-4EA6-9473-789CD1DDF5CA}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <StartupObject>Pathfinder.My.MyApplication</StartupObject>
-    <RootNamespace>Pathfinder</RootNamespace>
-    <AssemblyName>Pathfinder</AssemblyName>
+    <StartupObject>GoldBank.My.MyApplication</StartupObject>
+    <RootNamespace>GoldBank</RootNamespace>
+    <AssemblyName>GoldBank</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <MyType>WindowsForms</MyType>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
@@ -40,7 +40,7 @@
     <DefineDebug>true</DefineDebug>
     <DefineTrace>true</DefineTrace>
     <OutputPath>bin\Debug\</OutputPath>
-    <DocumentationFile>Pathfinder.xml</DocumentationFile>
+    <DocumentationFile>GoldBank.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
@@ -50,7 +50,7 @@
     <DefineTrace>true</DefineTrace>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
-    <DocumentationFile>Pathfinder.xml</DocumentationFile>
+    <DocumentationFile>GoldBank.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
   <PropertyGroup>
@@ -111,12 +111,7 @@
     <Compile Include="About.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddPlayer.Designer.vb">
-      <DependentUpon>AddPlayer.vb</DependentUpon>
-    </Compile>
-    <Compile Include="AddPlayer.vb">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="ApplicationEvents.vb" />
     <Compile Include="Classes\FuncMod.vb" />
     <Compile Include="Main.vb">
       <SubType>Form</SubType>
@@ -140,12 +135,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="Players.Designer.vb">
-      <DependentUpon>Players.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Players.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="SplashScreen.Designer.vb">
       <DependentUpon>SplashScreen.vb</DependentUpon>
     </Compile>
@@ -157,9 +146,6 @@
     <EmbeddedResource Include="About.resx">
       <DependentUpon>About.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AddPlayer.resx">
-      <DependentUpon>AddPlayer.vb</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.vb</DependentUpon>
       <SubType>Designer</SubType>
@@ -169,9 +155,6 @@
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Players.resx">
-      <DependentUpon>Players.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SplashScreen.resx">
       <DependentUpon>SplashScreen.vb</DependentUpon>
@@ -185,7 +168,7 @@
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
     </None>
     <None Include="My Project\Settings.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
+      <Generator>PublicSettingsSingleFileGenerator</Generator>
       <CustomToolNamespace>My</CustomToolNamespace>
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>

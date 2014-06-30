@@ -41,12 +41,12 @@
             If My.Computer.FileSystem.FileExists(Main.SaveFileDialog1.FileName.ToString) Then
                 My.Computer.FileSystem.DeleteFile(Main.SaveFileDialog1.FileName.ToString)
             End If
-            For x As Integer = 0 To Main.ListBox1.Items.Count - 1 Step 1
-                My.Computer.FileSystem.WriteAllText(Main.SaveFileDialog1.FileName.ToString, Main.ListBox1.Items.Item(x).ToString & vbCrLf, True)
-                My.Computer.FileSystem.WriteAllText(Main.SaveFileDialog1.FileName.ToString, Main.copperpiece(x).ToString & vbCrLf, True)
-                My.Computer.FileSystem.WriteAllText(Main.SaveFileDialog1.FileName.ToString, Main.silverpiece(x).ToString & vbCrLf, True)
-                My.Computer.FileSystem.WriteAllText(Main.SaveFileDialog1.FileName.ToString, Main.goldpiece(x).ToString & vbCrLf, True)
-                My.Computer.FileSystem.WriteAllText(Main.SaveFileDialog1.FileName.ToString, Main.platinumpiece(x).ToString & vbCrLf, True)
+            For x As Integer = 0 To Main.ComboBox1.Items.Count - 1 Step 1
+                My.Computer.FileSystem.WriteAllText(Main.SaveFileDialog1.FileName.ToString, Main.ComboBox1.Items.Item(x).ToString & vbCrLf, True)
+                My.Computer.FileSystem.WriteAllText(Main.SaveFileDialog1.FileName.ToString, Main.cop.Item(x).ToString & vbCrLf, True)
+                My.Computer.FileSystem.WriteAllText(Main.SaveFileDialog1.FileName.ToString, Main.silv.Item(x).ToString & vbCrLf, True)
+                My.Computer.FileSystem.WriteAllText(Main.SaveFileDialog1.FileName.ToString, Main.gold.Item(x).ToString & vbCrLf, True)
+                My.Computer.FileSystem.WriteAllText(Main.SaveFileDialog1.FileName.ToString, Main.plat.Item(x).ToString & vbCrLf, True)
             Next
         End If
         Return True
@@ -60,16 +60,16 @@
         Main.OpenFileDialog1.ShowDialog()
         If Main.OpenFileDialog1.FileName <> "" Then
             Dim sr As New System.IO.StreamReader(Main.OpenFileDialog1.FileName)
-            Main.ListBox1.Items.Clear()
+            Main.ComboBox1.Items.Clear()
             Dim lineCount = IO.File.ReadAllLines(Main.OpenFileDialog1.FileName).Length
             For x As Integer = 0 To Math.Floor(lineCount / 5) - 1 Step 1
-                Main.ListBox1.Items.Add(sr.ReadLine())
-                Main.copperpiece(x) = sr.ReadLine()
-                Main.silverpiece(x) = sr.ReadLine()
-                Main.goldpiece(x) = sr.ReadLine()
-                Main.platinumpiece(x) = sr.ReadLine()
+                Main.ComboBox1.Items.Add(sr.ReadLine())
+                Main.cop.Item(x) = sr.ReadLine()
+                Main.silv.Item(x) = sr.ReadLine()
+                Main.gold.Item(x) = sr.ReadLine()
+                Main.plat.Item(x) = sr.ReadLine()
             Next
-            Main.ListBox1.SelectedIndex = 0
+            Main.ComboBox1.SelectedIndex = 0
             sr.Close()
         End If
         Return True
@@ -117,24 +117,6 @@
         Return agf + msc.Eval(Main.Modifiers.Text) 'return everything added together for the ListView1
     End Function
 
-    Function resizewin()
-        Main.Size = New Size(998, 379)
-        If (Main.GoldBankPanel.Visible = True OrElse Main.InfoPanel.Visible = True) And Main.DiceRollerPanel.Visible = True Then
-            Main.Size = New Size(998, 379)
-        ElseIf Main.GoldBankPanel.Visible = False And Main.InfoPanel.Visible = False And Main.DiceRollerPanel.Visible = True Then
-            Main.Size = New Size(Main.Width - Main.GoldBankPanel.Width, Main.Height)
-        ElseIf Main.GoldBankPanel.Visible = True And Main.InfoPanel.Visible = True And Main.DiceRollerPanel.Visible = False Then
-            Main.Size = New Size(Main.Width - Main.DiceRollerPanel.Width, Main.Height)
-        ElseIf Main.GoldBankPanel.Visible = True And Main.InfoPanel.Visible = False And Main.DiceRollerPanel.Visible = False Then
-            Main.Size = New Size(Main.Width - Main.DiceRollerPanel.Width, Main.Height - Main.InfoPanel.Height)
-        ElseIf Main.GoldBankPanel.Visible = False And Main.InfoPanel.Visible = True And Main.DiceRollerPanel.Visible = False Then
-            Main.Size = New Size(Main.Width - Main.DiceRollerPanel.Width, Main.Height - Main.GoldBankPanel.Height)
-        Else
-            Main.Size = New Size(162, 53)
-        End If
-        Return True
-    End Function
-
     Function FindIt(Box As RichTextBox, colore As System.Drawing.Color, Srch As String, Optional Start As Long = 0)
         Dim retval As Long 'return value
         Dim Source As String 'the source of text
@@ -152,5 +134,14 @@
             FindIt = 1 + FindIt(Box, colore, Srch, Start)
         End If
         Return retval 'return how many items you found
+    End Function
+
+    Function pic_change(sender As Label, imagectrl As PictureBox, imagetext As String)
+        If CInt(sender.Text) >= 500 Then
+            imagectrl.Image = Image.FromFile(Main.path & imagetext + "bars.png")
+        ElseIf CInt(sender.Text) < 500 Then
+            imagectrl.Image = Image.FromFile(Main.path & imagetext + "coin.png")
+        End If
+        Return True
     End Function
 End Module
