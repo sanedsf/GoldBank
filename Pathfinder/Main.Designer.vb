@@ -42,12 +42,14 @@ Partial Class Main
         Me.dicenumber = New System.Windows.Forms.TextBox()
         Me.PlayerListlbl = New System.Windows.Forms.Label()
         Me.GroupBox5 = New System.Windows.Forms.GroupBox()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.removeplayer = New System.Windows.Forms.Button()
         Me.addplayerbtn = New System.Windows.Forms.Button()
         Me.PlayerInfolbl = New System.Windows.Forms.Label()
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
+        Me.Button2 = New System.Windows.Forms.Button()
         Me.ComboBox1 = New System.Windows.Forms.ComboBox()
         Me.Label151 = New System.Windows.Forms.Label()
         Me.Label153 = New System.Windows.Forms.Label()
@@ -61,6 +63,7 @@ Partial Class Main
         Me.ListView1 = New System.Windows.Forms.ListView()
         Me.ImageList1 = New System.Windows.Forms.ImageList(Me.components)
         Me.GroupBox6 = New System.Windows.Forms.GroupBox()
+        Me.Button3 = New System.Windows.Forms.Button()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.RichTextBox1 = New System.Windows.Forms.RichTextBox()
         Me.Clear = New System.Windows.Forms.Button()
@@ -90,6 +93,7 @@ Partial Class Main
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.SaveFileDialog1 = New System.Windows.Forms.SaveFileDialog()
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
+        Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         CType(Me.CopperPic, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.SilverPic, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GoldPic, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -158,42 +162,42 @@ Partial Class Main
         '
         Me.FileToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SaveToolStripMenuItem, Me.LoadToolStripMenuItem, Me.ExitToolStripMenuItem})
         Me.FileToolStripMenuItem.Name = "FileToolStripMenuItem"
-        Me.FileToolStripMenuItem.Size = New System.Drawing.Size(37, 20)
+        Me.FileToolStripMenuItem.Size = New System.Drawing.Size(35, 20)
         Me.FileToolStripMenuItem.Text = "File"
         '
         'SaveToolStripMenuItem
         '
         Me.SaveToolStripMenuItem.Name = "SaveToolStripMenuItem"
         Me.SaveToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.S), System.Windows.Forms.Keys)
-        Me.SaveToolStripMenuItem.Size = New System.Drawing.Size(143, 22)
+        Me.SaveToolStripMenuItem.Size = New System.Drawing.Size(137, 22)
         Me.SaveToolStripMenuItem.Text = "Save"
         '
         'LoadToolStripMenuItem
         '
         Me.LoadToolStripMenuItem.Name = "LoadToolStripMenuItem"
         Me.LoadToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.O), System.Windows.Forms.Keys)
-        Me.LoadToolStripMenuItem.Size = New System.Drawing.Size(143, 22)
+        Me.LoadToolStripMenuItem.Size = New System.Drawing.Size(137, 22)
         Me.LoadToolStripMenuItem.Text = "Load"
         '
         'ExitToolStripMenuItem
         '
         Me.ExitToolStripMenuItem.Name = "ExitToolStripMenuItem"
         Me.ExitToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Alt Or System.Windows.Forms.Keys.F4), System.Windows.Forms.Keys)
-        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(143, 22)
+        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(137, 22)
         Me.ExitToolStripMenuItem.Text = "Exit"
         '
         'OptionsToolStripMenuItem
         '
         Me.OptionsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SplashScreenToolStripMenuItem})
         Me.OptionsToolStripMenuItem.Name = "OptionsToolStripMenuItem"
-        Me.OptionsToolStripMenuItem.Size = New System.Drawing.Size(61, 20)
+        Me.OptionsToolStripMenuItem.Size = New System.Drawing.Size(56, 20)
         Me.OptionsToolStripMenuItem.Text = "Options"
         '
         'SplashScreenToolStripMenuItem
         '
         Me.SplashScreenToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.OnToolStripMenuItem, Me.OffToolStripMenuItem})
         Me.SplashScreenToolStripMenuItem.Name = "SplashScreenToolStripMenuItem"
-        Me.SplashScreenToolStripMenuItem.Size = New System.Drawing.Size(143, 22)
+        Me.SplashScreenToolStripMenuItem.Size = New System.Drawing.Size(138, 22)
         Me.SplashScreenToolStripMenuItem.Text = "SplashScreen"
         '
         'OnToolStripMenuItem
@@ -201,26 +205,26 @@ Partial Class Main
         Me.OnToolStripMenuItem.Checked = True
         Me.OnToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked
         Me.OnToolStripMenuItem.Name = "OnToolStripMenuItem"
-        Me.OnToolStripMenuItem.Size = New System.Drawing.Size(91, 22)
+        Me.OnToolStripMenuItem.Size = New System.Drawing.Size(90, 22)
         Me.OnToolStripMenuItem.Text = "On"
         '
         'OffToolStripMenuItem
         '
         Me.OffToolStripMenuItem.Name = "OffToolStripMenuItem"
-        Me.OffToolStripMenuItem.Size = New System.Drawing.Size(91, 22)
+        Me.OffToolStripMenuItem.Size = New System.Drawing.Size(90, 22)
         Me.OffToolStripMenuItem.Text = "Off"
         '
         'AboutToolStripMenuItem
         '
         Me.AboutToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.InformationToolStripMenuItem})
         Me.AboutToolStripMenuItem.Name = "AboutToolStripMenuItem"
-        Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(52, 20)
+        Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(48, 20)
         Me.AboutToolStripMenuItem.Text = "About"
         '
         'InformationToolStripMenuItem
         '
         Me.InformationToolStripMenuItem.Name = "InformationToolStripMenuItem"
-        Me.InformationToolStripMenuItem.Size = New System.Drawing.Size(137, 22)
+        Me.InformationToolStripMenuItem.Size = New System.Drawing.Size(130, 22)
         Me.InformationToolStripMenuItem.Text = "Information"
         '
         'dicenumber
@@ -245,6 +249,7 @@ Partial Class Main
         '
         'GroupBox5
         '
+        Me.GroupBox5.Controls.Add(Me.Button1)
         Me.GroupBox5.Controls.Add(Me.Label10)
         Me.GroupBox5.Controls.Add(Me.TextBox1)
         Me.GroupBox5.Controls.Add(Me.removeplayer)
@@ -254,6 +259,22 @@ Partial Class Main
         Me.GroupBox5.Size = New System.Drawing.Size(230, 167)
         Me.GroupBox5.TabIndex = 160
         Me.GroupBox5.TabStop = False
+        '
+        'Button1
+        '
+        Me.Button1.BackgroundImage = CType(resources.GetObject("Button1.BackgroundImage"), System.Drawing.Image)
+        Me.Button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.Button1.FlatAppearance.BorderSize = 0
+        Me.Button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
+        Me.Button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
+        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button1.ForeColor = System.Drawing.SystemColors.Control
+        Me.Button1.Location = New System.Drawing.Point(206, 143)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(18, 18)
+        Me.Button1.TabIndex = 156
+        Me.ToolTip1.SetToolTip(Me.Button1, resources.GetString("Button1.ToolTip"))
+        Me.Button1.UseVisualStyleBackColor = True
         '
         'Label10
         '
@@ -303,6 +324,7 @@ Partial Class Main
         '
         'GroupBox4
         '
+        Me.GroupBox4.Controls.Add(Me.Button2)
         Me.GroupBox4.Controls.Add(Me.ComboBox1)
         Me.GroupBox4.Controls.Add(Me.Label151)
         Me.GroupBox4.Controls.Add(Me.PlatinumPic)
@@ -320,6 +342,22 @@ Partial Class Main
         Me.GroupBox4.Size = New System.Drawing.Size(226, 167)
         Me.GroupBox4.TabIndex = 159
         Me.GroupBox4.TabStop = False
+        '
+        'Button2
+        '
+        Me.Button2.BackgroundImage = CType(resources.GetObject("Button2.BackgroundImage"), System.Drawing.Image)
+        Me.Button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.Button2.FlatAppearance.BorderSize = 0
+        Me.Button2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
+        Me.Button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
+        Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button2.ForeColor = System.Drawing.SystemColors.Control
+        Me.Button2.Location = New System.Drawing.Point(202, 143)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(18, 18)
+        Me.Button2.TabIndex = 157
+        Me.ToolTip1.SetToolTip(Me.Button2, resources.GetString("Button2.ToolTip"))
+        Me.Button2.UseVisualStyleBackColor = True
         '
         'ComboBox1
         '
@@ -441,6 +479,7 @@ Partial Class Main
         '
         'GroupBox6
         '
+        Me.GroupBox6.Controls.Add(Me.Button3)
         Me.GroupBox6.Controls.Add(Me.Label11)
         Me.GroupBox6.Controls.Add(Me.RichTextBox1)
         Me.GroupBox6.Controls.Add(Me.Clear)
@@ -450,6 +489,22 @@ Partial Class Main
         Me.GroupBox6.Size = New System.Drawing.Size(183, 274)
         Me.GroupBox6.TabIndex = 174
         Me.GroupBox6.TabStop = False
+        '
+        'Button3
+        '
+        Me.Button3.BackgroundImage = CType(resources.GetObject("Button3.BackgroundImage"), System.Drawing.Image)
+        Me.Button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.Button3.FlatAppearance.BorderSize = 0
+        Me.Button3.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
+        Me.Button3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
+        Me.Button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button3.ForeColor = System.Drawing.SystemColors.Control
+        Me.Button3.Location = New System.Drawing.Point(159, 250)
+        Me.Button3.Name = "Button3"
+        Me.Button3.Size = New System.Drawing.Size(18, 18)
+        Me.Button3.TabIndex = 158
+        Me.ToolTip1.SetToolTip(Me.Button3, resources.GetString("Button3.ToolTip"))
+        Me.Button3.UseVisualStyleBackColor = True
         '
         'Label11
         '
@@ -740,6 +795,14 @@ Partial Class Main
         Me.GroupBox2.TabIndex = 154
         Me.GroupBox2.TabStop = False
         '
+        'ToolTip1
+        '
+        Me.ToolTip1.AutoPopDelay = 5000
+        Me.ToolTip1.InitialDelay = 500
+        Me.ToolTip1.IsBalloon = True
+        Me.ToolTip1.ReshowDelay = 100
+        Me.ToolTip1.ShowAlways = True
+        '
         'Main
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -846,5 +909,9 @@ Partial Class Main
     Friend WithEvents ComboBox1 As System.Windows.Forms.ComboBox
     Friend WithEvents TextBox1 As System.Windows.Forms.TextBox
     Friend WithEvents Label10 As System.Windows.Forms.Label
+    Friend WithEvents Button1 As System.Windows.Forms.Button
+    Friend WithEvents ToolTip1 As System.Windows.Forms.ToolTip
+    Friend WithEvents Button2 As System.Windows.Forms.Button
+    Friend WithEvents Button3 As System.Windows.Forms.Button
 
 End Class

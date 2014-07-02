@@ -50,7 +50,6 @@
         Else
             testbtn.Visible = False
         End If
-        TextBox1.Focus()
     End Sub
 
     Private Sub ExitToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles ExitToolStripMenuItem.Click
@@ -109,12 +108,17 @@
 
     Private Sub removeplayer_Click(sender As System.Object, e As System.EventArgs) Handles removeplayer.Click
         Dim c As Integer = ComboBox1.SelectedIndex
-        ComboBox1.Items.RemoveAt(c)
-        cop.RemoveAt(c)
-        silv.RemoveAt(c)
-        gold.RemoveAt(c)
-        plat.RemoveAt(c)
-        ComboBox1.SelectedIndex = c - 1
+        If c >= 0 Then
+            ComboBox1.Items.RemoveAt(c)
+            cop.RemoveAt(c)
+            silv.RemoveAt(c)
+            gold.RemoveAt(c)
+            plat.RemoveAt(c)
+            ComboBox1.SelectedIndex = c - 1
+            If ComboBox1.SelectedIndex = -1 Then
+                ComboBox1.Text = ""
+            End If
+        End If
     End Sub
 
     Private Sub d4btn_Click(sender As System.Object, e As System.EventArgs) Handles d4btn.Click
@@ -203,7 +207,7 @@
         Dim i As Integer = ComboBox1.SelectedIndex
         If Amount.Text Is "" Then
             MsgBox("Amount cannot be nothing.")
-        Else
+        ElseIf Amount.Text IsNot "" And i >= 0 Then
             If e.Button = Windows.Forms.MouseButtons.Left Then
                 If (cop.Item(i) + CInt(Amount.Text)) > 999999 Then
                     MsgBox("Cannot add any more.")
@@ -227,7 +231,7 @@
         Dim i As Integer = ComboBox1.SelectedIndex
         If Amount.Text Is "" Then
             MsgBox("Amount cannot be nothing.")
-        Else
+        ElseIf Amount.Text IsNot "" And i >= 0 Then
             If e.Button = Windows.Forms.MouseButtons.Left Then
                 If (silv.Item(i) + CInt(Amount.Text)) > 999999 Then
                     MsgBox("Cannot add any more.")
@@ -251,7 +255,7 @@
         Dim i As Integer = ComboBox1.SelectedIndex
         If Amount.Text Is "" Then
             MsgBox("Amount cannot be nothing.")
-        Else
+        ElseIf Amount.Text IsNot "" And i >= 0 Then
             If e.Button = Windows.Forms.MouseButtons.Left Then
                 If (gold.Item(i) + CInt(Amount.Text)) > 999999 Then
                     MsgBox("Cannot add any more.")
@@ -275,7 +279,7 @@
         Dim i As Integer = ComboBox1.SelectedIndex
         If Amount.Text Is "" Then
             MsgBox("Amount cannot be nothing.")
-        Else
+        ElseIf Amount.Text IsNot "" And i >= 0 Then
             If e.Button = Windows.Forms.MouseButtons.Left Then
                 If (plat.Item(i) + CInt(Amount.Text)) > 999999 Then
                     MsgBox("Cannot add any more.")
@@ -301,5 +305,13 @@
         SilverLabel.Text = silv.Item(i)
         GoldLabel.Text = gold.Item(i)
         PlatinumLabel.Text = plat.Item(i)
+    End Sub
+
+    Private Sub Button_MouseHover(sender As Object, e As EventArgs) Handles Button1.MouseHover, Button2.MouseHover, Button3.MouseHover
+        sender.Image = Image.FromFile(path & "info3.png")
+    End Sub
+
+    Private Sub Button1_MouseLeave(sender As Object, e As EventArgs) Handles Button1.MouseLeave, Button2.MouseLeave, Button3.MouseLeave
+        sender.Image = Image.FromFile(path & "info2.png")
     End Sub
 End Class
