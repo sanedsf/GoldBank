@@ -94,6 +94,7 @@ Partial Class Main
         Me.SaveFileDialog1 = New System.Windows.Forms.SaveFileDialog()
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
+        Me.Convert = New System.Windows.Forms.Button()
         CType(Me.CopperPic, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.SilverPic, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GoldPic, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -110,7 +111,7 @@ Partial Class Main
         'CopperPic
         '
         Me.CopperPic.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.CopperPic.Location = New System.Drawing.Point(16, 89)
+        Me.CopperPic.Location = New System.Drawing.Point(16, 76)
         Me.CopperPic.Name = "CopperPic"
         Me.CopperPic.Size = New System.Drawing.Size(32, 32)
         Me.CopperPic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
@@ -120,7 +121,7 @@ Partial Class Main
         'SilverPic
         '
         Me.SilverPic.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.SilverPic.Location = New System.Drawing.Point(69, 89)
+        Me.SilverPic.Location = New System.Drawing.Point(69, 76)
         Me.SilverPic.Name = "SilverPic"
         Me.SilverPic.Size = New System.Drawing.Size(32, 32)
         Me.SilverPic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
@@ -130,7 +131,7 @@ Partial Class Main
         'GoldPic
         '
         Me.GoldPic.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.GoldPic.Location = New System.Drawing.Point(125, 89)
+        Me.GoldPic.Location = New System.Drawing.Point(125, 76)
         Me.GoldPic.Name = "GoldPic"
         Me.GoldPic.Size = New System.Drawing.Size(32, 32)
         Me.GoldPic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
@@ -140,7 +141,7 @@ Partial Class Main
         'PlatinumPic
         '
         Me.PlatinumPic.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.PlatinumPic.Location = New System.Drawing.Point(177, 89)
+        Me.PlatinumPic.Location = New System.Drawing.Point(177, 76)
         Me.PlatinumPic.Name = "PlatinumPic"
         Me.PlatinumPic.Size = New System.Drawing.Size(32, 32)
         Me.PlatinumPic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
@@ -324,6 +325,7 @@ Partial Class Main
         '
         'GroupBox4
         '
+        Me.GroupBox4.Controls.Add(Me.Convert)
         Me.GroupBox4.Controls.Add(Me.Button2)
         Me.GroupBox4.Controls.Add(Me.ComboBox1)
         Me.GroupBox4.Controls.Add(Me.Label151)
@@ -396,7 +398,7 @@ Partial Class Main
         '
         'PlatinumLabel
         '
-        Me.PlatinumLabel.Location = New System.Drawing.Point(170, 136)
+        Me.PlatinumLabel.Location = New System.Drawing.Point(170, 112)
         Me.PlatinumLabel.Name = "PlatinumLabel"
         Me.PlatinumLabel.Size = New System.Drawing.Size(48, 13)
         Me.PlatinumLabel.TabIndex = 74
@@ -405,7 +407,7 @@ Partial Class Main
         '
         'GoldLabel
         '
-        Me.GoldLabel.Location = New System.Drawing.Point(116, 136)
+        Me.GoldLabel.Location = New System.Drawing.Point(116, 112)
         Me.GoldLabel.Name = "GoldLabel"
         Me.GoldLabel.Size = New System.Drawing.Size(48, 13)
         Me.GoldLabel.TabIndex = 73
@@ -414,7 +416,7 @@ Partial Class Main
         '
         'CopperLabel
         '
-        Me.CopperLabel.Location = New System.Drawing.Point(8, 136)
+        Me.CopperLabel.Location = New System.Drawing.Point(8, 112)
         Me.CopperLabel.Name = "CopperLabel"
         Me.CopperLabel.Size = New System.Drawing.Size(48, 13)
         Me.CopperLabel.TabIndex = 71
@@ -423,7 +425,7 @@ Partial Class Main
         '
         'SilverLabel
         '
-        Me.SilverLabel.Location = New System.Drawing.Point(62, 136)
+        Me.SilverLabel.Location = New System.Drawing.Point(62, 112)
         Me.SilverLabel.Name = "SilverLabel"
         Me.SilverLabel.Size = New System.Drawing.Size(48, 13)
         Me.SilverLabel.TabIndex = 72
@@ -803,6 +805,15 @@ Partial Class Main
         Me.ToolTip1.ReshowDelay = 100
         Me.ToolTip1.ShowAlways = True
         '
+        'Convert
+        '
+        Me.Convert.Location = New System.Drawing.Point(82, 133)
+        Me.Convert.Name = "Convert"
+        Me.Convert.Size = New System.Drawing.Size(75, 23)
+        Me.Convert.TabIndex = 158
+        Me.Convert.Text = "Convert"
+        Me.Convert.UseVisualStyleBackColor = True
+        '
         'Main
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -913,5 +924,6 @@ Partial Class Main
     Friend WithEvents ToolTip1 As System.Windows.Forms.ToolTip
     Friend WithEvents Button2 As System.Windows.Forms.Button
     Friend WithEvents Button3 As System.Windows.Forms.Button
+    Friend WithEvents Convert As System.Windows.Forms.Button
 
 End Class

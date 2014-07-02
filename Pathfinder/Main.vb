@@ -95,10 +95,7 @@
     End Sub
 
     Private Sub addplayerbtn_Click(sender As System.Object, e As System.EventArgs) Handles addplayerbtn.Click
-        If TextBox1.Text = "" Then
-            TextBox1.Text = "Player"
-        End If
-        ComboBox1.Items.Add(TextBox1.Text)
+        ComboBox1.Items.Add(InputBox("Please specify the players name.", "Add a player into the players list.", "Player " & ComboBox1.Items.Count.ToString))
         cop.Add(0)
         silv.Add(0)
         gold.Add(0)
@@ -313,5 +310,21 @@
 
     Private Sub Button1_MouseLeave(sender As Object, e As EventArgs) Handles Button1.MouseLeave, Button2.MouseLeave, Button3.MouseLeave
         sender.Image = Image.FromFile(path & "info2.png")
+    End Sub
+
+    Private Sub Convert_Click(sender As Object, e As EventArgs) Handles Convert.Click
+        Dim i As Integer = ComboBox1.SelectedIndex
+        For x As Integer = 0 To 1000 Step 1
+            plat.Item(i) += Math.Floor(gold.Item(i) / 10)
+            gold.Item(i) -= gold.Item(i) - (((gold.Item(i) / 10) - Math.Floor(gold.Item(i) / 10)) * 10)
+            gold.Item(i) += Math.Floor(silv.Item(i) / 10)
+            silv.Item(i) -= silv.Item(i) - (((silv.Item(i) / 10) - Math.Floor(silv.Item(i) / 10)) * 10)
+            silv.Item(i) += Math.Floor(cop.Item(i) / 10)
+            cop.Item(i) -= cop.Item(i) - (((cop.Item(i) / 10) - Math.Floor(cop.Item(i) / 10)) * 10)
+        Next
+        CopperLabel.Text = cop.Item(i)
+        SilverLabel.Text = silv.Item(i)
+        GoldLabel.Text = gold.Item(i)
+        PlatinumLabel.Text = plat.Item(i)
     End Sub
 End Class
