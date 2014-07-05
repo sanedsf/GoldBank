@@ -43,12 +43,11 @@ Partial Class Main
         Me.PlayerListlbl = New System.Windows.Forms.Label()
         Me.GroupBox5 = New System.Windows.Forms.GroupBox()
         Me.Button1 = New System.Windows.Forms.Button()
-        Me.Label10 = New System.Windows.Forms.Label()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.removeplayer = New System.Windows.Forms.Button()
         Me.addplayerbtn = New System.Windows.Forms.Button()
         Me.PlayerInfolbl = New System.Windows.Forms.Label()
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
+        Me.Convert = New System.Windows.Forms.Button()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.ComboBox1 = New System.Windows.Forms.ComboBox()
         Me.Label151 = New System.Windows.Forms.Label()
@@ -94,7 +93,6 @@ Partial Class Main
         Me.SaveFileDialog1 = New System.Windows.Forms.SaveFileDialog()
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
-        Me.Convert = New System.Windows.Forms.Button()
         CType(Me.CopperPic, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.SilverPic, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GoldPic, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -251,8 +249,6 @@ Partial Class Main
         'GroupBox5
         '
         Me.GroupBox5.Controls.Add(Me.Button1)
-        Me.GroupBox5.Controls.Add(Me.Label10)
-        Me.GroupBox5.Controls.Add(Me.TextBox1)
         Me.GroupBox5.Controls.Add(Me.removeplayer)
         Me.GroupBox5.Controls.Add(Me.addplayerbtn)
         Me.GroupBox5.Location = New System.Drawing.Point(6, 29)
@@ -277,37 +273,20 @@ Partial Class Main
         Me.ToolTip1.SetToolTip(Me.Button1, resources.GetString("Button1.ToolTip"))
         Me.Button1.UseVisualStyleBackColor = True
         '
-        'Label10
-        '
-        Me.Label10.AutoSize = True
-        Me.Label10.Location = New System.Drawing.Point(55, 46)
-        Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(139, 13)
-        Me.Label10.TabIndex = 155
-        Me.Label10.Text = "Insert name of player below:"
-        '
-        'TextBox1
-        '
-        Me.TextBox1.Location = New System.Drawing.Point(42, 62)
-        Me.TextBox1.MaxLength = 20
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(161, 20)
-        Me.TextBox1.TabIndex = 154
-        '
         'removeplayer
         '
-        Me.removeplayer.Location = New System.Drawing.Point(125, 113)
+        Me.removeplayer.Location = New System.Drawing.Point(123, 25)
         Me.removeplayer.Name = "removeplayer"
-        Me.removeplayer.Size = New System.Drawing.Size(88, 23)
+        Me.removeplayer.Size = New System.Drawing.Size(89, 23)
         Me.removeplayer.TabIndex = 153
         Me.removeplayer.Text = "Remove Player"
         Me.removeplayer.UseVisualStyleBackColor = True
         '
         'addplayerbtn
         '
-        Me.addplayerbtn.Location = New System.Drawing.Point(31, 113)
+        Me.addplayerbtn.Location = New System.Drawing.Point(15, 25)
         Me.addplayerbtn.Name = "addplayerbtn"
-        Me.addplayerbtn.Size = New System.Drawing.Size(88, 23)
+        Me.addplayerbtn.Size = New System.Drawing.Size(89, 23)
         Me.addplayerbtn.TabIndex = 152
         Me.addplayerbtn.Text = "Add Player"
         Me.addplayerbtn.UseVisualStyleBackColor = True
@@ -344,6 +323,15 @@ Partial Class Main
         Me.GroupBox4.Size = New System.Drawing.Size(226, 167)
         Me.GroupBox4.TabIndex = 159
         Me.GroupBox4.TabStop = False
+        '
+        'Convert
+        '
+        Me.Convert.Location = New System.Drawing.Point(82, 133)
+        Me.Convert.Name = "Convert"
+        Me.Convert.Size = New System.Drawing.Size(75, 23)
+        Me.Convert.TabIndex = 158
+        Me.Convert.Text = "Convert"
+        Me.Convert.UseVisualStyleBackColor = True
         '
         'Button2
         '
@@ -805,15 +793,6 @@ Partial Class Main
         Me.ToolTip1.ReshowDelay = 100
         Me.ToolTip1.ShowAlways = True
         '
-        'Convert
-        '
-        Me.Convert.Location = New System.Drawing.Point(82, 133)
-        Me.Convert.Name = "Convert"
-        Me.Convert.Size = New System.Drawing.Size(75, 23)
-        Me.Convert.TabIndex = 158
-        Me.Convert.Text = "Convert"
-        Me.Convert.UseVisualStyleBackColor = True
-        '
         'Main
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -839,7 +818,6 @@ Partial Class Main
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()
         Me.GroupBox5.ResumeLayout(False)
-        Me.GroupBox5.PerformLayout()
         Me.GroupBox4.ResumeLayout(False)
         Me.GroupBox4.PerformLayout()
         Me.GroupBox6.ResumeLayout(False)
@@ -918,8 +896,6 @@ Partial Class Main
     Friend WithEvents RichTextBox1 As System.Windows.Forms.RichTextBox
     Friend WithEvents Label11 As System.Windows.Forms.Label
     Friend WithEvents ComboBox1 As System.Windows.Forms.ComboBox
-    Friend WithEvents TextBox1 As System.Windows.Forms.TextBox
-    Friend WithEvents Label10 As System.Windows.Forms.Label
     Friend WithEvents Button1 As System.Windows.Forms.Button
     Friend WithEvents ToolTip1 As System.Windows.Forms.ToolTip
     Friend WithEvents Button2 As System.Windows.Forms.Button

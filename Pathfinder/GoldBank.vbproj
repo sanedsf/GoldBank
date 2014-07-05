@@ -113,6 +113,12 @@
     </Compile>
     <Compile Include="ApplicationEvents.vb" />
     <Compile Include="Classes\FuncMod.vb" />
+    <Compile Include="List.Designer.vb">
+      <DependentUpon>List.vb</DependentUpon>
+    </Compile>
+    <Compile Include="List.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Main.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -145,6 +151,9 @@
   <ItemGroup>
     <EmbeddedResource Include="About.resx">
       <DependentUpon>About.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="List.resx">
+      <DependentUpon>List.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.vb</DependentUpon>

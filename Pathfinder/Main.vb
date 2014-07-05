@@ -95,27 +95,34 @@
     End Sub
 
     Private Sub addplayerbtn_Click(sender As System.Object, e As System.EventArgs) Handles addplayerbtn.Click
-        ComboBox1.Items.Add(InputBox("Please specify the players name.", "Add a player into the players list.", "Player " & ComboBox1.Items.Count.ToString))
-        cop.Add(0)
-        silv.Add(0)
-        gold.Add(0)
-        plat.Add(0)
-        ComboBox1.SelectedIndex = ComboBox1.Items.Count - 1
+        Dim c As String = InputBox("Please specify the players name.", "Add a player into the players list.", "Player " & ComboBox1.Items.Count.ToString)
+        If c <> "" Then
+            ComboBox1.Items.Add(c)
+            cop.Add(0)
+            silv.Add(0)
+            gold.Add(0)
+            plat.Add(0)
+            ComboBox1.SelectedIndex = ComboBox1.Items.Count - 1
+        End If
     End Sub
 
     Private Sub removeplayer_Click(sender As System.Object, e As System.EventArgs) Handles removeplayer.Click
-        Dim c As Integer = ComboBox1.SelectedIndex
-        If c >= 0 Then
-            ComboBox1.Items.RemoveAt(c)
-            cop.RemoveAt(c)
-            silv.RemoveAt(c)
-            gold.RemoveAt(c)
-            plat.RemoveAt(c)
-            ComboBox1.SelectedIndex = c - 1
-            If ComboBox1.SelectedIndex = -1 Then
-                ComboBox1.Text = ""
-            End If
-        End If
+        Dim h As New ComboBox
+        Me.GroupBox4.Controls.Add(h)
+        h.Enabled = False
+        h.Text = Me.ComboBox1.Text
+        h.Name = "h"
+        h.Location = ComboBox1.Location
+        h.Size = ComboBox1.Size
+        List.ShowDialog()
+        Me.GroupBox4.Controls.Add(List.Controls.Item("Combobox1"))
+        Me.GroupBox4.Controls.Item("Combobox1").Location = New Point(55, 22)
+        Me.GroupBox4.Controls.Item("Combobox1").Size = New Size(154, 21)
+        Me.ComboBox1.SelectedIndex = 0
+        List.Dispose()
+        Me.GroupBox4.Controls.RemoveByKey("h")
+        h.Dispose()
+        h = Nothing
     End Sub
 
     Private Sub d4btn_Click(sender As System.Object, e As System.EventArgs) Handles d4btn.Click
@@ -327,4 +334,5 @@
         GoldLabel.Text = gold.Item(i)
         PlatinumLabel.Text = plat.Item(i)
     End Sub
+
 End Class
