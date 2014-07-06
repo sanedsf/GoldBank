@@ -218,12 +218,8 @@
     <Content Include="Resources\d100.bmp">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\info2.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Resources\info3.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
+    <Content Include="Resources\info2.png" />
+    <Content Include="Resources\info3.png" />
     <Content Include="Resources\platinumbars.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
