@@ -64,10 +64,17 @@
             Dim lineCount = IO.File.ReadAllLines(Main.OpenFileDialog1.FileName).Length
             For x As Integer = 0 To Math.Floor(lineCount / 5) - 1 Step 1
                 Main.ComboBox1.Items.Add(sr.ReadLine())
-                Main.cop.Item(x) = sr.ReadLine()
-                Main.silv.Item(x) = sr.ReadLine()
-                Main.gold.Item(x) = sr.ReadLine()
-                Main.plat.Item(x) = sr.ReadLine()
+                If Main.cop.Count > x Then
+                    Main.cop.Item(x) = sr.ReadLine()
+                    Main.silv.Item(x) = sr.ReadLine()
+                    Main.gold.Item(x) = sr.ReadLine()
+                    Main.plat.Item(x) = sr.ReadLine()
+                Else
+                    Main.cop.Add(sr.ReadLine())
+                    Main.silv.Add(sr.ReadLine())
+                    Main.gold.Add(sr.ReadLine())
+                    Main.plat.Add(sr.ReadLine())
+                End If
             Next
             Main.ComboBox1.SelectedIndex = 0
             sr.Close()
