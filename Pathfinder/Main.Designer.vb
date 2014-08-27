@@ -93,6 +93,7 @@ Partial Class Main
         Me.SaveFileDialog1 = New System.Windows.Forms.SaveFileDialog()
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
+        Me.ExperimentalToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         CType(Me.CopperPic, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.SilverPic, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GoldPic, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -148,7 +149,7 @@ Partial Class Main
         '
         'MenuStrip1
         '
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FileToolStripMenuItem, Me.OptionsToolStripMenuItem, Me.AboutToolStripMenuItem})
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FileToolStripMenuItem, Me.OptionsToolStripMenuItem, Me.AboutToolStripMenuItem, Me.ExperimentalToolStripMenuItem})
         Me.MenuStrip1.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
@@ -793,9 +794,15 @@ Partial Class Main
         Me.ToolTip1.ReshowDelay = 100
         Me.ToolTip1.ShowAlways = True
         '
+        'ExperimentalToolStripMenuItem
+        '
+        Me.ExperimentalToolStripMenuItem.Name = "ExperimentalToolStripMenuItem"
+        Me.ExperimentalToolStripMenuItem.Size = New System.Drawing.Size(81, 20)
+        Me.ExperimentalToolStripMenuItem.Text = "Experimental"
+        '
         'Main
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6!, 13!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.ClientSize = New System.Drawing.Size(505, 575)
@@ -804,34 +811,34 @@ Partial Class Main
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.MenuStrip1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D
-        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.Icon = CType(resources.GetObject("$this.Icon"),System.Drawing.Icon)
         Me.MainMenuStrip = Me.MenuStrip1
-        Me.MaximizeBox = False
+        Me.MaximizeBox = false
         Me.Name = "Main"
         Me.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Gold Bank & Dice Roller by AnaRchX"
-        CType(Me.CopperPic, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.SilverPic, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.GoldPic, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PlatinumPic, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.MenuStrip1.ResumeLayout(False)
-        Me.MenuStrip1.PerformLayout()
-        Me.GroupBox5.ResumeLayout(False)
-        Me.GroupBox4.ResumeLayout(False)
-        Me.GroupBox4.PerformLayout()
-        Me.GroupBox6.ResumeLayout(False)
-        Me.GroupBox6.PerformLayout()
-        Me.GroupBox7.ResumeLayout(False)
-        Me.GroupBox7.PerformLayout()
-        Me.GroupBox1.ResumeLayout(False)
-        Me.GroupBox1.PerformLayout()
-        Me.GroupBox2.ResumeLayout(False)
-        Me.GroupBox2.PerformLayout()
-        Me.ResumeLayout(False)
-        Me.PerformLayout()
+        CType(Me.CopperPic,System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.SilverPic,System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.GoldPic,System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.PlatinumPic,System.ComponentModel.ISupportInitialize).EndInit
+        Me.MenuStrip1.ResumeLayout(false)
+        Me.MenuStrip1.PerformLayout
+        Me.GroupBox5.ResumeLayout(false)
+        Me.GroupBox4.ResumeLayout(false)
+        Me.GroupBox4.PerformLayout
+        Me.GroupBox6.ResumeLayout(false)
+        Me.GroupBox6.PerformLayout
+        Me.GroupBox7.ResumeLayout(false)
+        Me.GroupBox7.PerformLayout
+        Me.GroupBox1.ResumeLayout(false)
+        Me.GroupBox1.PerformLayout
+        Me.GroupBox2.ResumeLayout(false)
+        Me.GroupBox2.PerformLayout
+        Me.ResumeLayout(false)
+        Me.PerformLayout
 
-    End Sub
+End Sub
     Friend WithEvents CopperPic As System.Windows.Forms.PictureBox
     Friend WithEvents SilverPic As System.Windows.Forms.PictureBox
     Friend WithEvents GoldPic As System.Windows.Forms.PictureBox
@@ -901,5 +908,6 @@ Partial Class Main
     Friend WithEvents Button2 As System.Windows.Forms.Button
     Friend WithEvents Button3 As System.Windows.Forms.Button
     Friend WithEvents Convert As System.Windows.Forms.Button
+    Friend WithEvents ExperimentalToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 
 End Class

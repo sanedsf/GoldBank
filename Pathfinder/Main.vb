@@ -1,4 +1,6 @@
-﻿Public Class Main
+﻿Imports System.IO
+
+Public Class Main
 
     ''Author: AnaRchX
     ''Country: Greece
@@ -11,8 +13,6 @@
     Public silv As New List(Of Integer)
     Public gold As New List(Of Integer)
     Public plat As New List(Of Integer)
-    Dim dicepic As String()
-    Dim buttons As Button()
     Public path As String = My.Application.Info.DirectoryPath & "\Resources\"
 
     Private Sub Form1_Disposed(sender As Object, e As System.EventArgs) Handles Me.Disposed
@@ -25,8 +25,8 @@
         SilverPic.Image = Image.FromFile(path & "silvercoin.png")
         GoldPic.Image = Image.FromFile(path & "goldcoin.png")
         PlatinumPic.Image = Image.FromFile(path & "platinumcoin.png")
-        buttons = {d4btn, d6btn, d8btn, d10btn, d12btn, d20btn}
-        dicepic = {"d4", "d6", "d8", "d10", "d12", "d20"}
+        Dim buttons() As Button = {d4btn, d6btn, d8btn, d10btn, d12btn, d20btn}
+        Dim dicepic() As String = {"d4", "d6", "d8", "d10", "d12", "d20"}
         Try
             For f As Integer = 0 To buttons.Length - 1 Step 1
                 buttons(f).Text = ""
@@ -53,7 +53,7 @@
     End Sub
 
     Private Sub ExitToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles ExitToolStripMenuItem.Click
-            Me.Close()
+        Me.Close()
     End Sub
 
     Private Sub SaveToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles SaveToolStripMenuItem.Click
@@ -334,5 +334,42 @@
         GoldLabel.Text = gold.Item(i)
         PlatinumLabel.Text = plat.Item(i)
     End Sub
+
+    'BE AWARE!
+    'THE CODE BELOW IS STRICTLY EXPERIMENTAL AND IN NO WAY SHAPE OR FORM READY FOR A REALEASE YET!
+    'IT STILL NEEDS TESTING AND DEFFINATELLY MAJOR CLEANUP BEFORE IMPLEMENTATION!
+
+    'This code reads an image's array of bytes from a specified folder and writes them in a file.
+    'This method will be used in the future to minimize the size of images all together and give
+    'the ability to load images loaded to the memory and not as an actual file.
+
+    'Why did I add this? Because I thought it was cool.
+
+    Private Sub ExperimentalToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ExperimentalToolStripMenuItem.Click
+        Dim f() As String = {""}
+        Dim ex As String = ""
+        Dim ext() As String = {"png", "bmp", "dat"}
+        For g As Integer = 0 To (My.Computer.FileSystem.GetFiles(path).Count - 1) Step 1
+            If (My.Computer.FileSystem.GetFiles(path).Item(g).EndsWith(ext(0)) = True) Then
+                f = Split(My.Computer.FileSystem.GetFiles(path).Item(g), ".png")
+                ex = ".png"
+            ElseIf (My.Computer.FileSystem.GetFiles(path).Item(g).EndsWith(ext(1)) = True) Then
+                f = Split(My.Computer.FileSystem.GetFiles(path).Item(g), ".bmp")
+                ex = ".bmp"
+            ElseIf (My.Computer.FileSystem.GetFiles(path).Item(g).EndsWith(ext(2)) = True) Then
+                f = Nothing
+                ex = ""
+            End If
+            If (f IsNot Nothing) Then
+                My.Computer.FileSystem.WriteAllBytes(path & "test\" & g & ".dat", ImageToBytes(Image.FromFile(f(0) & ex)), False)
+            End If
+        Next
+
+        For g As Integer = 0 To (My.Computer.FileSystem.GetFiles(path & "test\").Count - 1) Step 1
+            BytesToImage(My.Computer.FileSystem.ReadAllBytes(path & "test\" & g & ".dat")).Save(path & "test1\" & g & ".png", System.Drawing.Imaging.ImageFormat.Png)
+        Next
+    End Sub
+
+    'END OF EXPERIMENTAL CODE
 
 End Class

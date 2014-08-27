@@ -52,6 +52,7 @@ Partial Class List
         Me.ClientSize = New System.Drawing.Size(182, 75)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Button1)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
         Me.Name = "List"
         Me.Text = "comb"
         Me.ResumeLayout(False)

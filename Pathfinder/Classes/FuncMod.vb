@@ -1,5 +1,7 @@
-﻿Module FuncMod
+﻿Imports System.IO
 
+Module FuncMod
+    'Function for rolling dice
     Function roll(ByVal i As Integer, ByVal p As Integer)
         Dim rndnumber As New Random
         Dim k As Integer
@@ -9,6 +11,7 @@
         Return k
     End Function
 
+    'Function to check keypresses. Used to monitor numbers in fields.
     Function kp(sender As Object, e As System.Windows.Forms.KeyPressEventArgs)
         If Asc(e.KeyChar) <> 8 Then
             If Asc(e.KeyChar) < 48 OrElse Asc(e.KeyChar) > 57 Then
@@ -18,6 +21,7 @@
         Return True
     End Function
 
+    'Function to check keypresses. Used to monitor english alphabet, -, +,  in a single field.
     Function kp1(sender As Object, e As System.Windows.Forms.KeyPressEventArgs)
         If Not Asc(e.KeyChar) = 8 Then
             If Asc(e.KeyChar) < 43 Then
@@ -31,6 +35,7 @@
         Return True
     End Function
 
+    'Function to Save gold and names in a file.
     Function savedat()
         Main.SaveFileDialog1.Filter = "Data|*.dat"
         Main.SaveFileDialog1.Title = "Save Data File"
@@ -52,6 +57,7 @@
         Return True
     End Function
 
+    'Function to Load gold and names from a file.
     Function loaddat()
         Main.OpenFileDialog1.Filter = "Data|*.dat"
         Main.OpenFileDialog1.Title = "Load a save file"
@@ -82,6 +88,7 @@
         Return True
     End Function
 
+    'Function to evaluate the modifiers field.
     Function test(ByVal q As Integer, Optional ByVal w As Integer = 0, Optional ByVal e As Boolean = False)
         'q = Dice side
         'w = optional starting value of the dice. default is 0
@@ -124,6 +131,7 @@
         Return agf + msc.Eval(Main.Modifiers.Text) 'return everything added together for the ListView1
     End Function
 
+    'Function to paint numbers red and green inside a richtextbox.
     Function FindIt(Box As RichTextBox, colore As System.Drawing.Color, Srch As String, Optional Start As Long = 0)
         Dim retval As Long 'return value
         Dim Source As String 'the source of text
@@ -143,6 +151,7 @@
         Return retval 'return how many items you found
     End Function
 
+    'Function to change the picture on the gold dispays.
     Function pic_change(sender As Label, imagectrl As PictureBox, imagetext As String)
         If CInt(sender.Text) >= 500 Then
             imagectrl.Image = Image.FromFile(Main.path & imagetext + "bars.png")
@@ -150,5 +159,23 @@
             imagectrl.Image = Image.FromFile(Main.path & imagetext + "coin.png")
         End If
         Return True
+    End Function
+
+    'Function to read Bytes and make an Image out of them.
+    Function BytesToImage(ByVal ImageBytes() As Byte) As Image
+        Dim memImage As New MemoryStream(ImageBytes)
+        Dim imgNew As Image = Image.FromStream(memImage)
+        Return imgNew
+    End Function
+
+    'Function to read an Image and wrtie its bytes to an Array.
+    Function ImageToBytes(ByVal Image As Image) As Byte()
+        Dim memImage As New System.IO.MemoryStream
+        Dim bytImage() As Byte
+
+        Image.Save(memImage, Image.RawFormat)
+        bytImage = memImage.GetBuffer()
+
+        Return bytImage
     End Function
 End Module
